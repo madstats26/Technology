@@ -93,7 +93,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(
 <h3>Protecting an LED</h3>
 <div class="formula">R = (supply voltage &minus; LED voltage) &divide; LED current</div></section>
 <section id="work"><h2>Worked examples</h2><div class="worked"><p><b>1. A 9 V battery is connected across a 300 Ω resistor. What current flows?</b></p><p>I = V ÷ R = 9 ÷ 300 = 0.03 A (30 mA).</p></div><div class="worked"><p><b>2. Three resistors of 100 Ω, 220 Ω and 180 Ω are in series. What is the total resistance?</b></p><p>R = 100 + 220 + 180 = 500 Ω.</p></div><div class="worked"><p><b>3. A red LED drops 2 V and needs 20 mA (0.02 A). It runs on a 5 V supply. Find the resistor.</b></p><p>The resistor must drop 5 − 2 = 3 V. R = V ÷ I = 3 ÷ 0.02 = 150 Ω.</p></div><div class="worked"><p><b>4. Why does an LED need a resistor?</b></p><p>An LED has very little resistance on its own. Without a resistor, too much current flows and it can burn out.</p></div><div class="note">Build and test these circuits in <a href="junior-tinkercad.html">Tinkercad Circuits</a>.</div></section>
-<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+<section id="qz"><h2>Quick check</h2><div id="qzbox"></div></section>
 
 </div>
 <script>
@@ -113,7 +113,7 @@ var QZ=[["Which formula is Ohm's law?", ["I = V × R", "R = I ÷ V", "V = I + R"
 if(QZ.length){var qa=[],qd=false;
 function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
  if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
- $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ $("qzbox").innerHTML=h;[].forEach.call($("qzbox").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
  if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
  qr()}
 </script>

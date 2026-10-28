@@ -93,7 +93,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(
 <div class="formula">Moment = force &times; distance from the pivot</div>
 <p>A structure balances when the clockwise moments equal the anticlockwise moments.</p></section>
 <section id="work"><h2>Worked examples</h2><div class="worked"><p><b>1. A 200 N force acts 0.5 m from a pivot. What is the moment?</b></p><p>Moment = 200 × 0.5 = 100 N m.</p></div><div class="worked"><p><b>2. A seesaw balances. A 300 N child sits 2 m from the pivot. Where must a 200 N child sit on the other side?</b></p><p>Moments must balance: 200 × d = 300 × 2 = 600, so d = 3 m.</p></div><div class="worked"><p><b>3. A cable fails at 20 kN and the safe working load is 4 kN. What is the factor of safety?</b></p><p>Factor of safety = failure load ÷ safe working load = 20 ÷ 4 = 5.</p></div><div class="worked"><p><b>4. Why is a triangle used in a roof frame?</b></p><p>A triangle cannot change shape unless a side changes length, so it keeps the frame rigid.</p></div></section>
-<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+<section id="qz"><h2>Quick check</h2><div id="qzbox"></div></section>
 
 </div>
 <script>
@@ -113,7 +113,7 @@ var QZ=[["A cable on a suspension bridge is being pulled. This force is…", ["c
 if(QZ.length){var qa=[],qd=false;
 function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
  if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
- $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ $("qzbox").innerHTML=h;[].forEach.call($("qzbox").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
  if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
  qr()}
 </script>

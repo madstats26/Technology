@@ -100,7 +100,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(
 <h3>Logic and control</h3>
 <p>Inputs come from sensors and switches. The logic gate is the <b>process</b>. The output controls an LED, buzzer or motor. You can test logic circuits in <a href="junior-tinkercad.html">Tinkercad Circuits</a>, and show the same decision as a flowchart.</p></section>
 <section id="work"><h2>Worked examples</h2><div class="worked"><p><b>1. An alarm sounds only when the system is armed (A) and the door is open (B). Which gate is needed?</b></p><p>AND. The alarm (output) is 1 only if A = 1 and B = 1.</p></div><div class="worked"><p><b>2. A light switches on if it is dark (A) or the switch is on (B). Which gate is needed?</b></p><p>OR. The light is on if either input is 1.</p></div><div class="worked"><p><b>3. Complete the truth table for a circuit with an AND gate whose output goes into a NOT gate.</b></p><p>This is a NAND gate.<div class="scroll"><table><tr><th>A</th><th>B</th><th>AND</th><th>NOT (output)</th></tr><tr><td>0</td><td>0</td><td>0</td><td>1</td></tr><tr><td>0</td><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td><td>0</td></tr></table></div></p></div><div class="worked"><p><b>4. A garden light must be on when it is dark (D = 1) and someone is detected (M = 1). Write the decision as a flowchart.</b></p><p>Start; read the light sensor; is it dark? If no, light off. If yes, read the movement sensor; is movement detected? If yes, light on; if no, light off; then repeat.</p></div></section>
-<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+<section id="qz"><h2>Quick check</h2><div id="qzbox"></div></section>
 
 </div>
 <script>
@@ -120,7 +120,7 @@ var QZ=[["What is the output of an AND gate if both inputs are 1?", ["1", "It de
 if(QZ.length){var qa=[],qd=false;
 function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
  if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
- $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ $("qzbox").innerHTML=h;[].forEach.call($("qzbox").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
  if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
  qr()}
 </script>

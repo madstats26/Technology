@@ -115,7 +115,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(
 <ol class="nl"><li>Create a <b>Drawing</b> from your part or assembly and choose a paper size and a scale.</li><li>Add the standard views: front, plan (top) and side.</li><li>Add an <b>isometric</b> view for a 3D picture.</li><li>Add <b>dimensions</b> that show the overall size and important features.</li><li>Fill in the title block (name, title, scale, date).</li><li>Export as a PDF to put in your folio.</li></ol>
 <h3>Drawing checklist</h3>
 <ul class="nl"><li>Are all the key dimensions shown, and only once each?</li><li>Is the scale stated?</li><li>Are the views lined up and labelled?</li><li>Is the title block complete?</li></ul></section>
-<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+<section id="qz"><h2>Quick check</h2><div id="qzbox"></div></section>
 
 </div>
 <script>
@@ -135,7 +135,7 @@ var QZ=[["In Onshape, where do you build an individual part?", ["Part Studio", "
 if(QZ.length){var qa=[],qd=false;
 function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
  if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
- $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ $("qzbox").innerHTML=h;[].forEach.call($("qzbox").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
  if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
  qr()}
 </script>

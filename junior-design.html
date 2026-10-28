@@ -90,7 +90,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(
 <h3>Prototypes and testing</h3><ul class="nl"><li>A <b>prototype</b> is a first model. Use cheap materials such as card or foam, or a CAD model.</li><li>Test it against the specification and with the user.</li><li>Record what you found and what you changed. This is <b>iteration</b>.</li></ul>
 <h3>Evaluating</h3><ul class="nl"><li>Compare your finished solution with the brief and the specification.</li><li>Include test results and feedback.</li><li>Say what worked, what did not, and what you would improve.</li></ul></section>
 <section id="work"><h2>Worked example</h2><div class="worked"><p><b>Brief: design a bedside lamp for a child's room, made from recycled materials.</b></p><p><b>User:</b> a young child. <b>Needs:</b> safe (low voltage, no hot parts), gentle light, easy to switch on. <b>Specification:</b> height under 300 mm; uses at least one recycled material; LED light with a switch; stable base. <b>Ideas:</b> three annotated sketches. <b>Choice:</b> the jar lamp, because glass jars are easy to find, the base is stable and the LED stays cool. <b>Test:</b> check the circuit works, the lamp does not tip, and the child can use the switch. <b>Evaluate:</b> compare with each point in the specification.</p></div><div class="note">Keep your evidence in a learning log. See the <a href="junior-projects.html">Projects page</a>.</div></section>
-<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+<section id="qz"><h2>Quick check</h2><div id="qzbox"></div></section>
 
 </div>
 <script>
@@ -110,7 +110,7 @@ var QZ=[["What does the design brief describe?", ["The tools in the room", "The 
 if(QZ.length){var qa=[],qd=false;
 function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
  if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
- $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ $("qzbox").innerHTML=h;[].forEach.call($("qzbox").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
  if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
  qr()}
 </script>
