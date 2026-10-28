@@ -62,11 +62,16 @@ textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2p
 h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
 
 .pick{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:22px 0}
-.pick a{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:22px 20px;box-shadow:6px 6px 0 var(--ink);transition:transform .12s,box-shadow .12s}
-.pick a:hover,.pick a:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
+.pick a.cl,.pick .card{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:22px 20px;box-shadow:6px 6px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.pick a.cl:hover,.pick a.cl:focus-visible{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--ink)}
 .pick .yrs{font:700 .85rem Archivo,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
 .pick h2{font-size:2rem;margin:6px 0 8px}
 .pick .go{display:inline-block;margin-top:12px;font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:6px 14px;border-radius:4px}
+.pick .card{text-decoration:none;color:var(--ink);background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:22px 20px;box-shadow:6px 6px 0 var(--ink)}
+.pick .two{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.pick .two a.go{display:block;text-decoration:none;margin:0;flex:1 1 130px;font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:8px 14px;border-radius:4px}
+.pick .two a.go small{display:block;font:400 .78rem "Public Sans",sans-serif;margin-top:2px}
+.pick .two a.go:hover,.pick .two a.go:focus-visible{background:#14283c;color:#fff}
 .pick ul{margin:8px 0 0;padding-left:18px;color:var(--mute);font-size:.93rem}
 @media (prefers-reduced-motion:reduce){.pick a{transition:none}}
 </style>
@@ -76,10 +81,10 @@ h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
 <h1><span>Technology</span> hub</h1>
 <p class="lead">Notes, past papers, practice questions and project help for your technology classes. Choose your cycle to start.</p>
 <div class="pick">
-<a href="junior.html"><div class="yrs">1st, 2nd and 3rd year</div><h2>Junior Cycle</h2><p style="margin:0">Applied Technology: the course, your learning outcomes, assessments and practice.</p>
+<a href="junior.html" class="cl"><div class="yrs">1st, 2nd and 3rd year</div><h2>Junior Cycle</h2><p style="margin:0">Applied Technology: the course, your learning outcomes, assessments and practice.</p>
 <ul><li>Learning outcomes checklist</li><li>CBAs and the project explained</li><li>Key terms and quiz</li></ul><span class="go">Go to Junior Cycle</span></a>
-<a href="senior.html"><div class="yrs">5th and 6th year</div><h2>Senior Cycle</h2><p style="margin:0">Leaving Cert Technology, Higher Level: past papers, exam breakdown, topics, project and practice exams.</p>
-<ul><li>Papers and marking schemes 2021 to 2026</li><li>Topic frequency</li><li>2027 project help</li></ul><span class="go">Go to Senior Cycle</span></a>
+<div class="card"><div class="yrs">5th and 6th year</div><h2>Senior Cycle</h2><p style="margin:0">Leaving Cert Technology, Higher Level. Learn the course, then revise and practise for the exam.</p>
+<div class="two"><a href="senior-learn.html" class="go">Learn<small>Year plan, notes, formulas, exam skills</small></a><a href="senior.html" class="go">Revise<small>Past papers, quizzes, project, mocks</small></a></div></div>
 </div>
 <p class="tag">Not sure which to choose? 1st to 3rd years pick Junior Cycle. 5th and 6th years pick Senior Cycle. Transition Year students can look at either.</p>
 </div>
