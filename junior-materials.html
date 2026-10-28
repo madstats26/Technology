@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Materials: Junior Cycle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+.nl li{margin:6px 0}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+.formula{font:600 .95rem ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:6px 10px;margin:6px 0;overflow-x:auto}
+pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;overflow-x:auto;font:.86rem/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.worked{border:1px solid var(--line);border-left:5px solid var(--hi);padding:8px 12px;margin:10px 0;background:var(--bg)}.worked p{margin:4px 0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
+.linkrow a:hover{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-electronics.html">Electronics</a> &middot; <a href="junior-mechanisms.html">Mechanisms</a> &middot; <a href="junior-design.html">Design process</a> &middot; <a href="junior-materials.html">Materials</a> &middot; <a href="junior-structures.html">Structures</a> &middot; <a href="junior-logic.html">Logic gates</a></p>
+<h1>Materials <span>topic</span></h1>
+<p class="lead">Woods, metals, plastics, composites, smart materials, properties, joining and finishing.</p>
+<nav role="tablist" id="tabs"></nav>
+<section id="learn"><h2>Materials</h2>
+<p>Designers choose materials by their <b>properties</b>: how they behave. Always say why a material suits the job.</p>
+<h3>Material families</h3><div class="scroll"><table><tr><th>Family</th><th>Examples</th><th>Notes</th></tr><tr><td>Woods</td><td>Oak, ash (hardwoods); pine (softwood); plywood, MDF (manufactured boards)</td><td>Hardwoods come from slow-growing broad-leaved trees. Boards are made in large sheets</td></tr><tr><td>Metals</td><td>Steel, cast iron (ferrous); aluminium, copper, brass (non-ferrous)</td><td>Ferrous metals contain iron and can rust. Alloys mix metals, such as brass (copper and zinc)</td></tr><tr><td>Plastics</td><td>Acrylic, polythene, PVC (thermoplastics); epoxy resin, melamine (thermosetting)</td><td>Thermoplastics can be reheated and reshaped. Thermosetting plastics cannot</td></tr><tr><td>Composites</td><td>Plywood, GRP, carbon fibre</td><td>Two materials combined to give better properties</td></tr><tr><td>Smart materials</td><td>Shape memory alloy, thermochromic film</td><td>They respond to a change in the surroundings, such as heat or light</td></tr></table></div>
+<h3>Properties</h3><div class="scroll"><table><tr><th>Property</th><th>Meaning</th></tr><tr><td>Strength</td><td>Can carry a load without breaking</td></tr><tr><td>Hardness</td><td>Resists scratching and wear</td></tr><tr><td>Toughness</td><td>Absorbs a shock without breaking</td></tr><tr><td>Brittle</td><td>Breaks suddenly, with no bending (glass, cast iron)</td></tr><tr><td>Ductile</td><td>Can be stretched into a wire (copper)</td></tr><tr><td>Malleable</td><td>Can be hammered or pressed into shape</td></tr><tr><td>Elastic</td><td>Returns to its shape after bending</td></tr><tr><td>Conductor / insulator</td><td>Lets electricity or heat pass / does not</td></tr><tr><td>Density</td><td>How heavy it is for its size</td></tr><tr><td>Corrosion resistant</td><td>Does not rust or rot easily</td></tr></table></div>
+<h3>Choosing a material: ask these questions</h3><ul class="nl"><li>What properties does the job need?</li><li>Can I work it with the tools I have?</li><li>What does it cost, and is it available?</li><li>Is it safe, and what is its environmental impact?</li><li>Can it be reused or recycled?</li></ul>
+<h3>Joining and finishing</h3><ul class="nl"><li><b>Wood</b>: screws, nails, glue, dowels. <b>Metal</b>: soldering, riveting, nuts and bolts. <b>Plastic</b>: solvent cement, hot glue, fasteners.</li><li><b>Finishes</b> protect and improve appearance: paint, varnish, oil for wood; paint or plastic coating for metal; polishing for plastics.</li></ul>
+<h3>Sustainability</h3>
+<p>Use less, reuse, repair and recycle. Choose materials from sustainable sources and design products that last.</p></section>
+<section id="work"><h2>Worked examples</h2><div class="worked"><p><b>1. Why is copper used for electrical wire?</b></p><p>It is a good electrical conductor and is ductile, so it can be drawn into wire and bent easily.</p></div><div class="worked"><p><b>2. Why is acrylic used for a lamp shade?</b></p><p>It is a thermoplastic that can be shaped by heating, it is light and transparent, and it is easy to cut and polish.</p></div><div class="worked"><p><b>3. A designer wants a light, strong, rust-resistant frame. Which material might they choose?</b></p><p>Aluminium: it is low density, strong for its weight and resists corrosion.</p></div><div class="worked"><p><b>4. What is the difference between a thermoplastic and a thermosetting plastic?</b></p><p>A thermoplastic softens when heated and can be reshaped. A thermosetting plastic is set permanently and cannot be reshaped by heating.</p></div></section>
+<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tabs=[["learn", "Learn"], ["work", "Worked examples"], ["qz", "Quick check"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show(tabs[0][0]);
+/* tick lists saved on this device */
+var KEY="jc-t-mat",tk=ld(KEY,{});
+function tp(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var g=bar.dataset.g,all=[].slice.call(document.querySelectorAll('.tick[data-g="'+g+'"]')),d=all.filter(function(c){return c.checked}).length;bar.style.width=(all.length?d/all.length*100:0)+"%";bar.parentNode.title=d+" of "+all.length})}
+[].forEach.call(document.querySelectorAll(".tick"),function(c){var k=c.dataset.g+"|"+c.dataset.i;c.checked=!!tk[k];c.onchange=function(){if(c.checked)tk[k]=1;else delete tk[k];sv(KEY,tk);tp()}});tp();
+/* quiz */
+var QZ=[["Which is a thermoplastic?", ["Epoxy resin", "Melamine", "Acrylic", "Polyester resin"], 2, "Thermoplastics can be reheated and reshaped."], ["Brass is an alloy of…", ["aluminium and tin", "iron and carbon", "copper and zinc", "copper and tin"], 2, "Brass = copper + zinc."], ["Which metal is ferrous?", ["Steel", "Copper", "Aluminium", "Brass"], 0, "Ferrous metals contain iron."], ["A material that breaks suddenly without bending is…", ["malleable", "ductile", "brittle", "elastic"], 2, "Glass and cast iron are brittle."], ["Why is copper used for electrical wire?", ["It is a good conductor and ductile", "It is an insulator", "It is cheap and brittle", "It is magnetic"], 0, "Copper conducts well and can be drawn into wire."], ["Which is a smart material?", ["Pine", "Steel", "Plywood", "A shape memory alloy"], 3, "Shape memory alloys respond to heat."], ["What is plywood an example of?", ["A thermosetting plastic", "A metal", "A ceramic", "A composite (manufactured) board"], 3, "Plywood is made from layers glued together."], ["Which is a hardwood?", ["Pine", "Oak", "Spruce", "Larch"], 1, "Oak is a hardwood; pine, spruce and larch are softwoods."]];
+if(QZ.length){var qa=[],qd=false;
+function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
+ if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
+ $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
+ qr()}
+</script>
+</body>
+</html>

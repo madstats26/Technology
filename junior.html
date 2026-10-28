@@ -73,7 +73,7 @@ dl{margin:0}dt{font:700 1rem Archivo,sans-serif;margin-top:12px}dd{margin:2px 0 
 .plan td:first-child{width:34px}
 .plan tr.dn td{color:var(--mute);text-decoration:line-through}
 .nl li{margin:6px 0}
-.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}.linkrow a:hover{background:var(--ink);color:var(--bg)}</style>
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}.linkrow a:hover{background:var(--ink);color:var(--bg)}.tcard{display:block;text-decoration:none;color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}.tcard:hover,.tcard:focus-visible{background:var(--bg)}.tcard h3{color:var(--acc)}</style>
 </head>
 <body>
 <div class="wrap">
@@ -155,6 +155,12 @@ dl{margin:0}dt{font:700 1rem Archivo,sans-serif;margin-top:12px}dd{margin:2px 0 
 <div id="result" hidden></div>
 </section>
 
+<section id="ctopics">
+<h2>Topics</h2>
+<p class="lead" style="margin-top:0">A page for each main topic, with notes, worked examples and a quick quiz.</p>
+<div class="grid"><a class="box tcard" href="junior-electronics.html"><h3 style="margin-top:0">Electronics</h3><p style="margin:0">Components, Ohm's law, series and parallel circuits</p></a><a class="box tcard" href="junior-mechanisms.html"><h3 style="margin-top:0">Mechanisms</h3><p style="margin:0">Motion, levers, gears, pulleys and cams</p></a><a class="box tcard" href="junior-design.html"><h3 style="margin-top:0">Design process</h3><p style="margin:0">From brief to evaluation, research, ideas and testing</p></a><a class="box tcard" href="junior-materials.html"><h3 style="margin-top:0">Materials</h3><p style="margin:0">Woods, metals, plastics, properties and choosing a material</p></a><a class="box tcard" href="junior-structures.html"><h3 style="margin-top:0">Structures and forces</h3><p style="margin:0">Forces, loads, triangulation, stability and bridges</p></a><a class="box tcard" href="junior-logic.html"><h3 style="margin-top:0">Logic gates</h3><p style="margin:0">AND, OR, NOT, truth tables and control</p></a></div>
+</section>
+
 <section id="jplan">
 <h2>Year plan</h2>
 <p>This is what your class covers each year. Tick a topic when it is finished. Your ticks are saved on this device only. Dates can change, so follow your teacher's instructions.</p>
@@ -198,7 +204,7 @@ function mockRender(cycle){var L=(window.MOCKS||[]).filter(function(m){return m.
  L.forEach(function(m){h+='<tr><td><b>'+m.title+'</b>'+(m.date?'<br><span class="tag">'+m.date+'</span>':'')+(m.note?'<br><span class="tag">'+m.note+'</span>':'')+'</td><td>'+(m.paper?'<a href="mocks/'+m.paper+'" target="_blank" rel="noopener">Open paper</a>':'')+'</td><td>'+(m.solutions?'<a href="mocks/'+m.solutions+'" target="_blank" rel="noopener">Open solutions</a>':'<span class="tag">Coming soon</span>')+'</td></tr>'});
  el.innerHTML=h+'</table></div>'}
 
-var groups=[["Course",[["course","The course"],["jplan","Year plan"],["outcomes","Learning outcomes"]]],
+var groups=[["Course",[["course","The course"],["jplan","Year plan"],["ctopics","Topics"],["outcomes","Learning outcomes"]]],
 ["Learn",[["jnotes","Notes"],["terms","Key terms"]]],
 ["Assess",[["assess","How you are assessed"],["jproj","Project help"]]],
 ["Exams",[["practice","Quiz"],["papers","Past papers"],["mocks","Mock papers"]]]];

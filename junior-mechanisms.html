@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mechanisms: Junior Cycle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+.nl li{margin:6px 0}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+.formula{font:600 .95rem ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:6px 10px;margin:6px 0;overflow-x:auto}
+pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;overflow-x:auto;font:.86rem/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.worked{border:1px solid var(--line);border-left:5px solid var(--hi);padding:8px 12px;margin:10px 0;background:var(--bg)}.worked p{margin:4px 0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
+.linkrow a:hover{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-electronics.html">Electronics</a> &middot; <a href="junior-mechanisms.html">Mechanisms</a> &middot; <a href="junior-design.html">Design process</a> &middot; <a href="junior-materials.html">Materials</a> &middot; <a href="junior-structures.html">Structures</a> &middot; <a href="junior-logic.html">Logic gates</a></p>
+<h1>Mechanisms <span>topic</span></h1>
+<p class="lead">Motion, levers, gears, pulleys, cams and linkages, with worked examples.</p>
+<nav role="tablist" id="tabs"></nav>
+<section id="learn"><h2>Mechanisms</h2>
+<p>A mechanism changes one type of motion or force into another.</p>
+<h3>Types of motion</h3><div class="scroll"><table><tr><th>Motion</th><th>Description</th><th>Example</th></tr><tr><td>Rotary</td><td>Turning in a circle</td><td>Wheel, drill bit</td></tr><tr><td>Linear</td><td>In a straight line</td><td>A drawer, a sliding door</td></tr><tr><td>Reciprocating</td><td>Back and forth in a straight line</td><td>Jigsaw blade, piston</td></tr><tr><td>Oscillating</td><td>Swinging back and forth</td><td>A pendulum, a swing</td></tr></table></div>
+<h3>Levers</h3>
+<p>A lever is a rigid bar that turns about a pivot (the fulcrum). Force applied at one point (the effort) moves a load at another.</p><div class="scroll"><table><tr><th>Class</th><th>Fulcrum, load, effort</th><th>Example</th></tr><tr><td>First</td><td>Fulcrum in the middle</td><td>Seesaw, scissors</td></tr><tr><td>Second</td><td>Load in the middle</td><td>Wheelbarrow, bottle opener</td></tr><tr><td>Third</td><td>Effort in the middle</td><td>Tweezers, fishing rod</td></tr></table></div>
+<div class="formula">Moment = force &times; distance from the fulcrum</div>
+<div class="formula">Mechanical advantage = load &divide; effort</div>
+<h3>Gears</h3><ul class="nl"><li>Meshing gears turn in <b>opposite</b> directions. An <b>idler</b> gear between them makes them turn the same way.</li><li><div class='formula'>Gear ratio = teeth on driven gear &divide; teeth on driver gear</div></li><li>A larger driven gear gives a <b>slower</b> output with more turning force. A smaller driven gear gives a faster output with less force.</li><li><b>Rack and pinion</b> turns rotary motion into linear. <b>Bevel gears</b> change the direction of drive through 90&deg;. A <b>worm gear</b> gives a big reduction.</li></ul>
+<h3>Pulleys and belts</h3><ul class="nl"><li>A belt joins two pulleys. They turn in the <b>same</b> direction (a crossed belt reverses it).</li><li>The bigger pulley turns slower. Speed ratio = diameter of driven pulley &divide; diameter of driver pulley.</li><li>A pulley system with several wheels reduces the effort needed to lift a load.</li></ul>
+<h3>Cams and followers</h3><ul class="nl"><li>A <b>cam</b> turns rotary motion into reciprocating (up and down) motion.</li><li>The <b>follower</b> rides on the cam. The cam's shape decides how the follower moves.</li><li><b>Circular (eccentric) cam</b>: smooth up and down. <b>Pear cam</b>: a rise, a rest, then a fall. <b>Snail cam</b>: slow rise and a sudden drop.</li></ul>
+<h3>Linkages</h3>
+<p>Linkages are bars joined by pivots. They change the direction or size of a motion, for example a windscreen wiper or a folding clothes airer.</p></section>
+<section id="work"><h2>Worked examples</h2><div class="worked"><p><b>1. A 12-tooth driver gear meshes with a 36-tooth driven gear. The driver turns at 600 RPM. Find the speed of the driven gear.</b></p><p>Ratio = 36 ÷ 12 = 3. Output speed = 600 ÷ 3 = 200 RPM.</p></div><div class="worked"><p><b>2. A lever has a 200 N load 100 mm from the fulcrum. The effort is 500 mm from the fulcrum. What effort is needed?</b></p><p>Effort × 500 = 200 × 100, so effort = 20 000 ÷ 500 = 40 N.</p></div><div class="worked"><p><b>3. A load of 600 N is lifted with an effort of 150 N. What is the mechanical advantage?</b></p><p>MA = load ÷ effort = 600 ÷ 150 = 4.</p></div><div class="worked"><p><b>4. A 50 mm driver pulley turns a 150 mm driven pulley. How does the speed change?</b></p><p>Ratio = 150 ÷ 50 = 3, so the driven pulley turns three times slower.</p></div><div class="note">Which cam would you use for a model where a figure rises slowly, then drops suddenly? A snail cam.</div></section>
+<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tabs=[["learn", "Learn"], ["work", "Worked examples"], ["qz", "Quick check"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show(tabs[0][0]);
+/* tick lists saved on this device */
+var KEY="jc-t-mech",tk=ld(KEY,{});
+function tp(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var g=bar.dataset.g,all=[].slice.call(document.querySelectorAll('.tick[data-g="'+g+'"]')),d=all.filter(function(c){return c.checked}).length;bar.style.width=(all.length?d/all.length*100:0)+"%";bar.parentNode.title=d+" of "+all.length})}
+[].forEach.call(document.querySelectorAll(".tick"),function(c){var k=c.dataset.g+"|"+c.dataset.i;c.checked=!!tk[k];c.onchange=function(){if(c.checked)tk[k]=1;else delete tk[k];sv(KEY,tk);tp()}});tp();
+/* quiz */
+var QZ=[["Which motion is back and forth in a straight line?", ["Oscillating", "Reciprocating", "Rotary", "Linear only"], 1, "A jigsaw blade is a reciprocating motion."], ["A 20-tooth driver meshes with a 60-tooth driven gear. What is the ratio?", ["20 : 1", "1 : 3", "60 : 1", "3 : 1"], 3, "60 ÷ 20 = 3, so the output turns 3 times slower."], ["Two meshing gears turn…", ["only one at a time", "at the same speed always", "in the same direction", "in opposite directions"], 3, "Meshing gears reverse each other's direction."], ["Which class of lever is a wheelbarrow?", ["First class", "Second class (load in the middle)", "Third class", "It is not a lever"], 1, "The load sits between the fulcrum (wheel) and the effort (handles)."], ["What turns rotary motion into up and down motion?", ["A cam and follower", "A bevel gear", "An idler gear", "A belt and pulley"], 0, "The cam's shape moves the follower up and down."], ["A load of 400 N is lifted with an effort of 100 N. What is the mechanical advantage?", ["300", "40 000", "0.25", "4"], 3, "MA = load ÷ effort = 4."], ["What does a rack and pinion do?", ["Stores energy", "Reverses linear motion", "Changes rotary motion into linear motion", "Doubles the force"], 2, "The pinion turns and the rack moves in a straight line."], ["A bigger driven pulley than driver pulley makes the output…", ["stop", "faster", "slower", "the same"], 2, "Speed ratio = driven ÷ driver, so a bigger driven pulley turns slower."]];
+if(QZ.length){var qa=[],qd=false;
+function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
+ if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
+ $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
+ qr()}
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Electronics: Junior Cycle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+.nl li{margin:6px 0}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+.formula{font:600 .95rem ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:6px 10px;margin:6px 0;overflow-x:auto}
+pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;overflow-x:auto;font:.86rem/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.worked{border:1px solid var(--line);border-left:5px solid var(--hi);padding:8px 12px;margin:10px 0;background:var(--bg)}.worked p{margin:4px 0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
+.linkrow a:hover{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-electronics.html">Electronics</a> &middot; <a href="junior-mechanisms.html">Mechanisms</a> &middot; <a href="junior-design.html">Design process</a> &middot; <a href="junior-materials.html">Materials</a> &middot; <a href="junior-structures.html">Structures</a> &middot; <a href="junior-logic.html">Logic gates</a></p>
+<h1>Electronics <span>topic</span></h1>
+<p class="lead">Components, Ohm's law, series and parallel circuits, with worked examples.</p>
+<nav role="tablist" id="tabs"></nav>
+<section id="learn"><h2>Electronics</h2>
+<p>Electronics is about controlling small electric currents to make things happen: lights, sounds, movement and decisions.</p>
+<h3>Input, process, output</h3><ul class="nl"><li><b>Input</b>: sends a signal in (switch, LDR, thermistor, microphone).</li><li><b>Process</b>: decides what to do (transistor, logic gate, microcontroller).</li><li><b>Output</b>: does something (LED, buzzer, motor, lamp).</li></ul>
+<h3>Measuring electricity</h3><div class="scroll"><table><tr><th>Quantity</th><th>Unit</th><th>Symbol</th><th>What it means</th></tr><tr><td>Voltage</td><td>volt</td><td>V</td><td>The push that drives the current</td></tr><tr><td>Current</td><td>ampere (amp)</td><td>A</td><td>How much charge flows each second</td></tr><tr><td>Resistance</td><td>ohm</td><td>&Omega;</td><td>How much a part resists the current</td></tr><tr><td>Power</td><td>watt</td><td>W</td><td>How fast energy is used</td></tr></table></div>
+<h3>Ohm's law</h3>
+<div class="formula">V = I &times; R</div>
+<p>Rearranged: I = V &divide; R and R = V &divide; I. Use the units V, A and &Omega;.</p>
+<h3>Series and parallel</h3><div class="scroll"><table><tr><th></th><th>Series</th><th>Parallel</th></tr><tr><td>Paths for current</td><td>One</td><td>More than one</td></tr><tr><td>Current</td><td>Same everywhere</td><td>Splits between branches</td></tr><tr><td>Voltage</td><td>Shared between components</td><td>Same across each branch</td></tr><tr><td>Total resistance</td><td>R = R1 + R2 + R3</td><td>Less than the smallest resistor</td></tr><tr><td>If one lamp fails</td><td>All go out</td><td>The others stay on</td></tr></table></div>
+<h3>Common components</h3><div class="scroll"><table><tr><th>Component</th><th>What it does</th></tr><tr><td>Resistor</td><td>Limits the current. Value is shown by coloured bands</td></tr><tr><td>LED</td><td>Gives light. Current flows one way. Needs a resistor in series</td></tr><tr><td>Switch / push button</td><td>Input: makes or breaks the circuit</td></tr><tr><td>LDR</td><td>Light dependent resistor: resistance falls in brighter light</td></tr><tr><td>Thermistor</td><td>Resistance changes with temperature</td></tr><tr><td>Capacitor</td><td>Stores a small amount of charge</td></tr><tr><td>Diode</td><td>Lets current flow one way only</td></tr><tr><td>Transistor</td><td>An electronic switch: a small current switches a larger one</td></tr><tr><td>Relay</td><td>A switch operated by a coil, so a small signal can switch a larger current</td></tr><tr><td>Buzzer, motor, lamp</td><td>Outputs</td></tr></table></div>
+<h3>Protecting an LED</h3>
+<div class="formula">R = (supply voltage &minus; LED voltage) &divide; LED current</div></section>
+<section id="work"><h2>Worked examples</h2><div class="worked"><p><b>1. A 9 V battery is connected across a 300 Ω resistor. What current flows?</b></p><p>I = V ÷ R = 9 ÷ 300 = 0.03 A (30 mA).</p></div><div class="worked"><p><b>2. Three resistors of 100 Ω, 220 Ω and 180 Ω are in series. What is the total resistance?</b></p><p>R = 100 + 220 + 180 = 500 Ω.</p></div><div class="worked"><p><b>3. A red LED drops 2 V and needs 20 mA (0.02 A). It runs on a 5 V supply. Find the resistor.</b></p><p>The resistor must drop 5 − 2 = 3 V. R = V ÷ I = 3 ÷ 0.02 = 150 Ω.</p></div><div class="worked"><p><b>4. Why does an LED need a resistor?</b></p><p>An LED has very little resistance on its own. Without a resistor, too much current flows and it can burn out.</p></div><div class="note">Build and test these circuits in <a href="junior-tinkercad.html">Tinkercad Circuits</a>.</div></section>
+<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tabs=[["learn", "Learn"], ["work", "Worked examples"], ["qz", "Quick check"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show(tabs[0][0]);
+/* tick lists saved on this device */
+var KEY="jc-t-elec",tk=ld(KEY,{});
+function tp(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var g=bar.dataset.g,all=[].slice.call(document.querySelectorAll('.tick[data-g="'+g+'"]')),d=all.filter(function(c){return c.checked}).length;bar.style.width=(all.length?d/all.length*100:0)+"%";bar.parentNode.title=d+" of "+all.length})}
+[].forEach.call(document.querySelectorAll(".tick"),function(c){var k=c.dataset.g+"|"+c.dataset.i;c.checked=!!tk[k];c.onchange=function(){if(c.checked)tk[k]=1;else delete tk[k];sv(KEY,tk);tp()}});tp();
+/* quiz */
+var QZ=[["Which formula is Ohm's law?", ["I = V × R", "R = I ÷ V", "V = I + R", "V = I × R"], 3, "Voltage = current × resistance."], ["A 12 V supply is across a 4 Ω resistor. What current flows?", ["48 A", "0.33 A", "8 A", "3 A"], 3, "I = V ÷ R = 12 ÷ 4 = 3 A."], ["In a series circuit, how do you find the total resistance?", ["Subtract them", "Add the resistances", "Take the largest one", "Multiply them"], 1, "Series resistances add together."], ["In a parallel circuit, what is the same across every branch?", ["Current", "Voltage", "Power", "Resistance"], 1, "Each branch has the same voltage across it."], ["What does an LDR do?", ["It switches a motor", "It stores charge", "Its resistance changes with light", "It makes light"], 2, "An LDR is a light dependent resistor."], ["Which component lets current flow in one direction only?", ["Resistor", "Relay", "Diode", "Capacitor"], 2, "A diode is a one-way valve for current."], ["A red LED drops 2 V and needs 20 mA on a 5 V supply. What resistor is needed?", ["250 Ω", "100 Ω", "15 Ω", "150 Ω"], 3, "R = (5 − 2) ÷ 0.02 = 150 Ω."], ["Which part is an output device?", ["LDR", "Buzzer", "Push button", "Thermistor"], 1, "Buzzers, LEDs and motors are outputs."]];
+if(QZ.length){var qa=[],qd=false;
+function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
+ if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
+ $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
+ qr()}
+</script>
+</body>
+</html>

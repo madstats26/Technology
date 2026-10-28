@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Structures and forces: Junior Cycle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+.nl li{margin:6px 0}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+.formula{font:600 .95rem ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:6px 10px;margin:6px 0;overflow-x:auto}
+pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;overflow-x:auto;font:.86rem/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.worked{border:1px solid var(--line);border-left:5px solid var(--hi);padding:8px 12px;margin:10px 0;background:var(--bg)}.worked p{margin:4px 0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
+.linkrow a:hover{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-electronics.html">Electronics</a> &middot; <a href="junior-mechanisms.html">Mechanisms</a> &middot; <a href="junior-design.html">Design process</a> &middot; <a href="junior-materials.html">Materials</a> &middot; <a href="junior-structures.html">Structures</a> &middot; <a href="junior-logic.html">Logic gates</a></p>
+<h1>Structures <span>and forces</span></h1>
+<p class="lead">Forces, loads, triangulation, stability, beams and bridges, with worked examples.</p>
+<nav role="tablist" id="tabs"></nav>
+<section id="learn"><h2>Structures and forces</h2>
+<p>A structure is something built to carry a load, such as a bridge, a shelf, a chair or a crane.</p>
+<h3>Types of force</h3><div class="scroll"><table><tr><th>Force</th><th>What it does</th><th>Example</th></tr><tr><td>Tension</td><td>Pulls and stretches</td><td>A cable on a suspension bridge</td></tr><tr><td>Compression</td><td>Pushes and squashes</td><td>A column holding up a roof</td></tr><tr><td>Shear</td><td>Forces slide past each other</td><td>A bolt holding two plates</td></tr><tr><td>Torsion</td><td>Twists</td><td>A screwdriver, a drive shaft</td></tr><tr><td>Bending</td><td>Combination of tension and compression</td><td>A shelf with a book on it</td></tr></table></div>
+<h3>Loads</h3><ul class="nl"><li>A <b>static</b> load does not move (a book on a shelf).</li><li>A <b>dynamic</b> load moves or changes (traffic on a bridge, wind on a tower).</li><li>The <b>self weight</b> of the structure is also a load.</li></ul>
+<h3>Making structures strong and stable</h3><ul class="nl"><li><b>Triangulation</b>: triangles are rigid, so triangles in a frame stop it changing shape.</li><li><b>A wide, low base</b> makes a structure more stable. The lower the centre of gravity, the harder it is to tip.</li><li><b>Shape</b>: an I-beam, a tube or a folded sheet is stiffer than a flat bar of the same material.</li><li><b>Joints</b>: strong joints stop a structure failing at its weakest point.</li></ul>
+<h3>Beams and bridges</h3><div class="scroll"><table><tr><th>Bridge</th><th>How it works</th></tr><tr><td>Beam</td><td>A flat deck supported at each end. The top is in compression and the bottom is in tension</td></tr><tr><td>Arch</td><td>The curve passes the load down to the supports as compression</td></tr><tr><td>Truss</td><td>A frame of triangles shares the load</td></tr><tr><td>Suspension</td><td>Cables hang from tall towers, so the cables are in tension and the towers in compression</td></tr></table></div>
+<h3>Testing structures</h3>
+<p>Add the load slowly and watch where it bends or fails. Record the load at failure and improve the weakest point.</p>
+<h3>Moments</h3>
+<div class="formula">Moment = force &times; distance from the pivot</div>
+<p>A structure balances when the clockwise moments equal the anticlockwise moments.</p></section>
+<section id="work"><h2>Worked examples</h2><div class="worked"><p><b>1. A 200 N force acts 0.5 m from a pivot. What is the moment?</b></p><p>Moment = 200 × 0.5 = 100 N m.</p></div><div class="worked"><p><b>2. A seesaw balances. A 300 N child sits 2 m from the pivot. Where must a 200 N child sit on the other side?</b></p><p>Moments must balance: 200 × d = 300 × 2 = 600, so d = 3 m.</p></div><div class="worked"><p><b>3. A cable fails at 20 kN and the safe working load is 4 kN. What is the factor of safety?</b></p><p>Factor of safety = failure load ÷ safe working load = 20 ÷ 4 = 5.</p></div><div class="worked"><p><b>4. Why is a triangle used in a roof frame?</b></p><p>A triangle cannot change shape unless a side changes length, so it keeps the frame rigid.</p></div></section>
+<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tabs=[["learn", "Learn"], ["work", "Worked examples"], ["qz", "Quick check"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show(tabs[0][0]);
+/* tick lists saved on this device */
+var KEY="jc-t-struct",tk=ld(KEY,{});
+function tp(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var g=bar.dataset.g,all=[].slice.call(document.querySelectorAll('.tick[data-g="'+g+'"]')),d=all.filter(function(c){return c.checked}).length;bar.style.width=(all.length?d/all.length*100:0)+"%";bar.parentNode.title=d+" of "+all.length})}
+[].forEach.call(document.querySelectorAll(".tick"),function(c){var k=c.dataset.g+"|"+c.dataset.i;c.checked=!!tk[k];c.onchange=function(){if(c.checked)tk[k]=1;else delete tk[k];sv(KEY,tk);tp()}});tp();
+/* quiz */
+var QZ=[["A cable on a suspension bridge is being pulled. This force is…", ["compression", "tension", "torsion", "shear"], 1, "Tension pulls."], ["Which shape makes a frame rigid?", ["Square", "Circle", "Rectangle", "Triangle"], 3, "A triangle cannot change shape without changing a side."], ["What is the moment of a 200 N force acting 0.5 m from a pivot?", ["200 N m", "400 N m", "100 N m", "0.0025 N m"], 2, "Moment = force × distance."], ["What makes a structure more stable?", ["A heavy top", "A thin base", "A narrow, high base", "A wide, low base"], 3, "A low centre of gravity and wide base resist tipping."], ["A load that moves, such as traffic on a bridge, is called…", ["a dynamic load", "a static load", "self weight", "torsion"], 0, "Dynamic loads change or move."], ["Which bridge hangs its deck from cables on tall towers?", ["Suspension bridge", "Truss bridge", "Beam bridge", "Arch bridge"], 0, "Cables in tension carry the deck."], ["A twisting force is called…", ["shear", "torsion", "tension", "compression"], 1, "Torsion twists."]];
+if(QZ.length){var qa=[],qd=false;
+function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
+ if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
+ $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
+ qr()}
+</script>
+</body>
+</html>
