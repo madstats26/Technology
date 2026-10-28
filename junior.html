@@ -82,6 +82,7 @@ dl{margin:0}dt{font:700 1rem Archivo,sans-serif;margin-top:12px}dd{margin:2px 0 
 <p class="lead">Your year plan, notes, learning outcomes, how you are assessed, project help, key terms and practice questions.</p>
 <div class="linkrow"><a href="junior-projects.html">Projects</a><a href="junior-tinkercad.html">Tinkercad</a><a href="junior-onshape.html">Onshape</a></div>
 <nav role="tablist" id="tabs"></nav>
+<div class="chips" id="subtabs" aria-label="Sections"></div>
 
 <section id="course">
 <h2>The course</h2>
@@ -197,10 +198,20 @@ function mockRender(cycle){var L=(window.MOCKS||[]).filter(function(m){return m.
  L.forEach(function(m){h+='<tr><td><b>'+m.title+'</b>'+(m.date?'<br><span class="tag">'+m.date+'</span>':'')+(m.note?'<br><span class="tag">'+m.note+'</span>':'')+'</td><td>'+(m.paper?'<a href="mocks/'+m.paper+'" target="_blank" rel="noopener">Open paper</a>':'')+'</td><td>'+(m.solutions?'<a href="mocks/'+m.solutions+'" target="_blank" rel="noopener">Open solutions</a>':'<span class="tag">Coming soon</span>')+'</td></tr>'});
  el.innerHTML=h+'</table></div>'}
 
-var tabs=[["course","The course"],["jplan","Year plan"],["jnotes","Notes"],["outcomes","Learning outcomes"],["assess","Assessment"],["jproj","Project help"],["terms","Key terms"],["practice","Practice quiz"],["papers","Past papers"],["mocks","Mock papers"]];
-function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
-tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
-show("course");
+var groups=[["Course",[["course","The course"],["jplan","Year plan"],["outcomes","Learning outcomes"]]],
+["Learn",[["jnotes","Notes"],["terms","Key terms"]]],
+["Assess",[["assess","How you are assessed"],["jproj","Project help"]]],
+["Practise",[["practice","Quiz"],["papers","Past papers"],["mocks","Mock papers"]]]];
+var allIds=[];groups.forEach(function(g){g[1].forEach(function(t){allIds.push(t[0])})});
+var curG=0;
+function showSec(id){allIds.forEach(function(x){$(x).classList.toggle("on",x===id)});
+ [].forEach.call($("subtabs").children,function(b){b.setAttribute("aria-pressed",b.dataset.id===id)})}
+function showGroup(gi){curG=gi;groups.forEach(function(g,i){$("t-"+i).setAttribute("aria-selected",i===gi)});
+ var secs=groups[gi][1];$("subtabs").innerHTML=secs.length>1?secs.map(function(t){return '<button class="chip" data-id="'+t[0]+'">'+t[1]+'</button>'}).join(""):"";
+ [].forEach.call($("subtabs").children,function(b){b.onclick=function(){showSec(b.dataset.id)}});showSec(secs[0][0])}
+function show(id){groups.forEach(function(g,gi){g[1].forEach(function(t){if(t[0]===id){showGroup(gi);showSec(id)}})})}
+groups.forEach(function(g,i){var b=document.createElement("button");b.id="t-"+i;b.textContent=g[0];b.setAttribute("role","tab");b.onclick=function(){showGroup(i)};$("tabs").appendChild(b)});
+showGroup(0);
 function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 /* learning outcomes */
