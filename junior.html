@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Junior Cycle Applied Technology</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}
+.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.lo b{font-family:Archivo,sans-serif;color:var(--acc);margin-right:4px}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+dl{margin:0}dt{font:700 1rem Archivo,sans-serif;margin-top:12px}dd{margin:2px 0 0}
+#gfind{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px;margin:8px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="senior.html">Senior Cycle</a></p>
+<h1>Junior Cycle <span>Applied Technology</span></h1>
+<p class="lead">The course, your learning outcomes, how you are assessed, key terms and practice questions.</p>
+<nav role="tablist" id="tabs"></nav>
+
+<section id="course">
+<h2>The course</h2>
+<p>Applied Technology develops your understanding of, and skills in, how technologies are applied and how they affect the world around you. It is studied over the three years of Junior Cycle, with a minimum of 200 hours.</p>
+<div class="grid">
+<div class="box"><h3 style="margin-top:0">1. Principles and practices</h3><p>Designing and making. Using materials, tools and processes to create solutions that suit the end user, and choosing suitable ways to solve real problems.</p></div>
+<div class="box"><h3 style="margin-top:0">2. Energy and control</h3><p>How energy is changed or controlled so that devices work safely and efficiently, with attention to economical and sustainable use of energy and materials.</p></div>
+<div class="box"><h3 style="margin-top:0">3. Technology and society</h3><p>How technology and society affect each other, including the environmental impact of design choices, user needs and social issues.</p></div>
+</div>
+<h3>Four skills you use in every strand</h3>
+<ul><li>Analysis and problem solving</li><li>Design and innovation</li><li>Planning, managing and creating</li><li>Communicating</li></ul>
+<div class="note">Source: the Junior Cycle Applied Technology specification and course pages on <a href="https://www.curriculumonline.ie/Junior-cycle/Junior-Cycle-Subjects/Applied-Technology" target="_blank" rel="noopener">curriculumonline.ie</a>.</div>
+</section>
+
+<section id="outcomes">
+<h2>Learning outcomes checklist</h2>
+<p class="lead" style="margin-top:0">These are the learning outcomes from the specification. Tick each one when you are confident you can do it. Your ticks are saved on this device and browser only.</p>
+<h3>Principles and practices</h3><div class="prog"><i data-strand="Principles and practices"></i></div><label class="lo"><input type="checkbox" data-id="1.1"><span><b>1.1</b>Students should be able to develop a design solution drawing on experience and using evidence, reasoning, and decision making.</span></label><label class="lo"><input type="checkbox" data-id="1.2"><span><b>1.2</b>Students should be able to analyse problems using a systematic approach.</span></label><label class="lo"><input type="checkbox" data-id="1.3"><span><b>1.3</b>Students should be able to refine ideas through the use of prototyping.</span></label><label class="lo"><input type="checkbox" data-id="1.4"><span><b>1.4</b>Students should be able to review planning decisions throughout.</span></label><label class="lo"><input type="checkbox" data-id="1.5"><span><b>1.5</b>Students should be able to consider the end-user experience at each stage of the design process.</span></label><label class="lo"><input type="checkbox" data-id="1.6"><span><b>1.6</b>Students should be able to understand the role, impact and potential of existing and emerging technologies.</span></label><label class="lo"><input type="checkbox" data-id="1.7"><span><b>1.7</b>Students should be able to apply innovative approaches in design solutions.</span></label><label class="lo"><input type="checkbox" data-id="1.8"><span><b>1.8</b>Students should be able to develop a plan for the realisation of a solution.</span></label><label class="lo"><input type="checkbox" data-id="1.9"><span><b>1.9</b>Students should be able to select appropriate materials, equipment and processes in solving a problem.</span></label><label class="lo"><input type="checkbox" data-id="1.10"><span><b>1.10</b>Students should be able to execute a plan using appropriate tools, materials and processes.</span></label><label class="lo"><input type="checkbox" data-id="1.11"><span><b>1.11</b>Students should be able to demonstrate adherence to recognised health and safety standards.</span></label><label class="lo"><input type="checkbox" data-id="1.12"><span><b>1.12</b>Students should be able to document progression from concept to realisation.</span></label><label class="lo"><input type="checkbox" data-id="1.13"><span><b>1.13</b>Students should be able to communicate evidence of the iterative process of design.</span></label><h3>Energy and control</h3><div class="prog"><i data-strand="Energy and control"></i></div><label class="lo"><input type="checkbox" data-id="2.1"><span><b>2.1</b>Students should be able to investigate relationships between the inputs, transformations, and outputs occurring within simple control systems.</span></label><label class="lo"><input type="checkbox" data-id="2.2"><span><b>2.2</b>Students should be able to evaluate ideas through the use of simulation (such as mechanical, electrical or digital modelling).</span></label><label class="lo"><input type="checkbox" data-id="2.3"><span><b>2.3</b>Students should be able to recognise the principles of control systems when developing their solution.</span></label><label class="lo"><input type="checkbox" data-id="2.4"><span><b>2.4</b>Students should be able to design a logical sequence of instructions to control a device or system.</span></label><label class="lo"><input type="checkbox" data-id="2.5"><span><b>2.5</b>Students should be able to apply innovative approaches to designing control system solutions.</span></label><label class="lo"><input type="checkbox" data-id="2.6"><span><b>2.6</b>Students should be able to explore energy conservation and efficiency.</span></label><label class="lo"><input type="checkbox" data-id="2.7"><span><b>2.7</b>Students should be able to identify appropriate energy and control systems for design solutions.</span></label><label class="lo"><input type="checkbox" data-id="2.8"><span><b>2.8</b>Students should be able to create control solutions to identified problems.</span></label><label class="lo"><input type="checkbox" data-id="2.9"><span><b>2.9</b>Students should be able to communicate technical information in appropriate forms.</span></label><label class="lo"><input type="checkbox" data-id="2.10"><span><b>2.10</b>Students should be able to explain the transformation of inputs to outputs.</span></label><h3>Technology and society</h3><div class="prog"><i data-strand="Technology and society"></i></div><label class="lo"><input type="checkbox" data-id="3.1"><span><b>3.1</b>Students should be able to analyse the impact of constraints on the design of solutions.</span></label><label class="lo"><input type="checkbox" data-id="3.2"><span><b>3.2</b>Students should be able to evaluate the effectiveness of solutions.</span></label><label class="lo"><input type="checkbox" data-id="3.3"><span><b>3.3</b>Students should be able to explain how human, societal and environmental considerations affect solutions and outcomes.</span></label><label class="lo"><input type="checkbox" data-id="3.4"><span><b>3.4</b>Students should be able to explore applications of technology in local contexts.</span></label><label class="lo"><input type="checkbox" data-id="3.5"><span><b>3.5</b>Students should be able to justify their selection of materials and processes based on factors such as environmental, economic and ethical considerations.</span></label><label class="lo"><input type="checkbox" data-id="3.6"><span><b>3.6</b>Students should be able to consider user needs at all stages of design.</span></label><label class="lo"><input type="checkbox" data-id="3.7"><span><b>3.7</b>Students should be able to recognise their responsibility for ensuring security and privacy of personal data.</span></label><label class="lo"><input type="checkbox" data-id="3.8"><span><b>3.8</b>Students should be able to evaluate the impact of technologies on their lives, society and the environment.</span></label><label class="lo"><input type="checkbox" data-id="3.9"><span><b>3.9</b>Students should be able to discuss the potential of technology to affect society and the environment.</span></label>
+<p><button class="cta" id="lorst">Clear all ticks</button></p>
+</section>
+
+<section id="assess">
+<h2>How you are assessed</h2>
+<div class="grid">
+<div class="box"><div class="big">70%</div><h3 style="margin-top:0">Project</h3><p class="tag">Third year, set and marked by the SEC</p><p>The State Examinations Commission sets the brief each year. You complete the project after Classroom-Based Assessment 2.</p></div>
+<div class="box"><div class="big">30%</div><h3 style="margin-top:0">Written exam</h3><p class="tag">End of third year, 90 minutes</p><p>Set and marked by the SEC at a common level (one paper for everyone).</p></div>
+</div>
+<h3>Classroom-Based Assessments (CBAs)</h3>
+<p>Your teacher judges these. They are not part of the 70/30 split. Each is reported on your Junior Cycle Profile of Achievement (JCPA) with one of four descriptors: <b>Exceptional</b>, <b>Above expectations</b>, <b>In line with expectations</b> or <b>Yet to meet expectations</b>.</p>
+<details><summary>CBA 1: Exploring the application of controlled systems in a local context (2nd year, term 2)</summary><div class="in">
+<p>An investigation of a controlled system in your local setting (classroom, school or community). You either look at an existing system with a defined function, or propose a new one. You have a maximum of 3 weeks, with teacher support. The evidence is your individual learning log, which can be supplemented by models, artefacts or other evidence. You can collaborate, but your piece of work is individual.</p>
+<p><b>Examples:</b> an emergency stop system in a workshop, corridor lighting, an entry or exit system, a communications control system, a radio-controlled system, a motion-controlled system for inclusivity in school.</p>
+<p><b>What your teacher looks at:</b> research and analysis, function, evaluating, and communicating.</p>
+<table><tr><th>Descriptor</th><th>In short</th></tr>
+<tr><td>Exceptional</td><td>Compares a range of sources and gives a comprehensive, detailed analysis. Investigates the system in high detail with excellent understanding of its function. Evaluates critically throughout and reaches accurate conclusions. Uses a highly effective medium.</td></tr>
+<tr><td>Above expectations</td><td>Effective research with in-depth analysis. Investigates the system in detail with very good understanding of its function. A high-level evaluation with relevant, accurate conclusions.</td></tr>
+<tr><td>In line with expectations</td><td>Appropriate research with some analysis. Some reference to the function. An appropriate evaluation with brief conclusions. Well presented.</td></tr>
+<tr><td>Yet to meet expectations</td><td>Research is ineffective and the analysis lacks depth. Little detail, little or no reference to the function, little or no conclusion. The format makes communication ineffective.</td></tr></table>
+</div></details>
+<details><summary>CBA 2: Student self-analysis and evaluation (3rd year, term 1)</summary><div class="in">
+<p>You analyse and evaluate your own coursework and skills so far, identify your strengths and areas for improvement, and use this to plan your project. You have a maximum of 3 weeks, with teacher support, and you can present it in any suitable format.</p>
+<p><b>Coursework elements you could look at:</b> researching, analysing findings, presenting work, generating ideas, sketching, bench skills, machine skills and final finishing.</p>
+<p><b>What your teacher looks at:</b> self-analysis of coursework elements, making judgements, and communicating.</p>
+<table><tr><th>Descriptor</th><th>In short</th></tr>
+<tr><td>Exceptional</td><td>Identifies a broad range of coursework elements with insightful, detailed observations and a comprehensive self-analysis. Critical judgements on strengths and improvements, showing exceptional awareness of how they will inform future work.</td></tr>
+<tr><td>Above expectations</td><td>A broad range of elements with detailed observations and some in-depth self-analysis. Detailed judgements showing very high awareness of future impact.</td></tr>
+<tr><td>In line with expectations</td><td>A range of elements with valid observations and some relevant self-analysis. Clear judgements with some awareness of future impact.</td></tr>
+<tr><td>Yet to meet expectations</td><td>A very small range of elements, with limited observation and self-analysis. Unclear judgements with limited awareness of future impact.</td></tr></table>
+</div></details>
+<div class="note">If you hand in no CBA work, the JCPA records it as "Not reported". Sources: the specification and the Assessment Guidelines on <a href="https://www.curriculumonline.ie/Junior-cycle/Junior-Cycle-Subjects/Applied-Technology/Assessment-and-Reporting" target="_blank" rel="noopener">curriculumonline.ie</a>. Check your own teacher's instructions for deadlines.</div>
+</section>
+
+<section id="terms">
+<h2>Key terms</h2>
+<p class="lead" style="margin-top:0">Short definitions of words you will meet in class and in the exam.</p>
+<input id="gfind" type="search" placeholder="Search terms" aria-label="Search key terms">
+<dl id="gl"><dt>Actuator</dt><dd>An output device that causes movement or action, such as a motor, buzzer or solenoid.</dd><dt>Analogue signal</dt><dd>A signal that can take any value within a range, such as the voltage from a light sensor.</dd><dt>Brief</dt><dd>A short description of the problem to be solved and what the solution must do.</dd><dt>Closed loop system</dt><dd>A control system that uses a sensor to feed information back, so the system can correct itself (a thermostat is an example).</dd><dt>Constraint</dt><dd>A limit on a design, such as cost, time, size, materials or safety rules.</dd><dt>Control system</dt><dd>A set of components that works together to make a device or process behave in a chosen way.</dd><dt>Controlled system</dt><dd>A system where components are used to change its behaviour so that it behaves in a specific way.</dd><dt>Defined function</dt><dd>A clear statement of what a system or part is meant to do.</dd><dt>Digital signal</dt><dd>A signal with only two states, on or off (1 or 0).</dd><dt>Design solution</dt><dd>The idea, model or product that answers the brief.</dd><dt>Efficiency</dt><dd>How much of the energy put into a system comes out as useful work. Wasted energy is often lost as heat.</dd><dt>End user</dt><dd>The person who will actually use the product.</dd><dt>Energy conservation</dt><dd>Using less energy by avoiding waste, for example by switching things off or using insulation.</dd><dt>Ergonomics</dt><dd>Designing products to fit the human body and be comfortable and safe to use.</dd><dt>Evaluate</dt><dd>To judge how well something works, using evidence and giving reasons.</dd><dt>Feedback</dt><dd>Information from the output sent back to the input so a system can adjust.</dd><dt>Flowchart</dt><dd>A diagram that uses standard shapes and arrows to show the steps of a process or program.</dd><dt>Input</dt><dd>Something that goes into a system, such as a button press or a reading from a sensor.</dd><dt>Iterative design</dt><dd>Repeating the cycle of designing, making, testing and improving.</dd><dt>Learning log</dt><dd>A record of your work and thinking as you go. It is used as evidence in the CBAs.</dd><dt>Microcontroller</dt><dd>A small programmable computer on one chip that reads inputs and controls outputs.</dd><dt>Open loop system</dt><dd>A control system with no feedback. It carries out its instructions without checking the result (a basic timer is an example).</dd><dt>Output</dt><dd>What a system produces, such as light, sound or movement.</dd><dt>Process</dt><dd>The part of a system that decides what to do with the inputs.</dd><dt>Prototype</dt><dd>A first model of a design, made to test and improve ideas.</dd><dt>Renewable energy</dt><dd>Energy from sources that are naturally replaced, such as wind, solar and hydro.</dd><dt>Risk assessment</dt><dd>Identifying hazards, deciding how likely and serious the harm could be, and choosing ways to reduce it.</dd><dt>Sensor</dt><dd>An input device that detects something in the environment, such as light, heat or movement.</dd><dt>Simulation</dt><dd>Testing an idea using a model, often on a computer, before building the real thing.</dd><dt>Sustainability</dt><dd>Meeting present needs without damaging the environment or the ability of future generations to meet theirs.</dd><dt>System</dt><dd>A group of parts that work together to do a job.</dd><dt>Transformation</dt><dd>A change of one form of energy into another, such as electrical energy into light.</dd><dt>User needs</dt><dd>What the people using a product require from it, such as comfort, safety or ease of use.</dd></dl>
+</section>
+
+<section id="practice">
+<h2>Practice quiz</h2>
+<div id="setup">
+<p>Choose strands and the number of questions. You get a score and an explanation for every answer.</p>
+<div id="topicpick"></div>
+<p><label>Questions: <select id="count"><option>5</option><option>10</option><option selected>15</option><option>20</option></select></label></p>
+<button class="cta" id="start">Start quiz</button>
+<div id="hist"></div>
+</div>
+<div id="quiz" hidden></div>
+<div id="result" hidden></div>
+</section>
+
+<section id="papers">
+<h2>Past papers</h2>
+<div class="note">No Applied Technology papers have been added to this site yet. Your teacher will add them here. Meanwhile, the State Examinations Commission publishes papers at <a href="https://www.examinations.ie" target="_blank" rel="noopener">examinations.ie</a>.</div>
+</section>
+
+<section id="mocks">
+<h2>Mock papers and solutions</h2>
+<p class="lead" style="margin-top:0">Practice papers written for this class, with solutions. Try the paper under timed conditions first, then check the solutions.</p>
+<div id="mocklist"></div>
+</section>
+
+</div>
+<script src="mocks.js"></script>
+<script>
+var $=function(i){return document.getElementById(i)};
+
+function mockRender(cycle){var L=(window.MOCKS||[]).filter(function(m){return m.cycle===cycle}),el=document.getElementById("mocklist");
+ if(!L.length){el.innerHTML='<div class="note">No mock papers have been added yet. Your teacher will add them here.</div>';return}
+ var h='<div class="scroll"><table><tr><th>Mock paper</th><th>Paper</th><th>Solutions</th></tr>';
+ L.forEach(function(m){h+='<tr><td><b>'+m.title+'</b>'+(m.date?'<br><span class="tag">'+m.date+'</span>':'')+(m.note?'<br><span class="tag">'+m.note+'</span>':'')+'</td><td>'+(m.paper?'<a href="mocks/'+m.paper+'" target="_blank" rel="noopener">Open paper</a>':'')+'</td><td>'+(m.solutions?'<a href="mocks/'+m.solutions+'" target="_blank" rel="noopener">Open solutions</a>':'<span class="tag">Coming soon</span>')+'</td></tr>'});
+ el.innerHTML=h+'</table></div>'}
+
+var tabs=[["course","The course"],["outcomes","Learning outcomes"],["assess","Assessment"],["terms","Key terms"],["practice","Practice quiz"],["papers","Past papers"],["mocks","Mock papers"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show("course");
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+/* learning outcomes */
+var done=ld("jc-at-lo",{});
+function lop(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var s=bar.dataset.strand,all=[].filter.call(document.querySelectorAll(".lo input"),function(c){return c.closest("section").contains(c)&&c.dataset.strand===s});
+ var n=all.length,d=all.filter(function(c){return c.checked}).length;bar.style.width=(n?d/n*100:0)+"%";bar.parentNode.setAttribute("title",d+" of "+n)})}
+(function(){var strand="";[].forEach.call(document.querySelectorAll("#outcomes h3, #outcomes .lo input"),function(el){if(el.tagName==="H3"){strand=el.textContent}else{el.dataset.strand=strand}});
+ [].forEach.call(document.querySelectorAll(".lo input"),function(c){c.checked=!!done[c.dataset.id];c.onchange=function(){if(c.checked)done[c.dataset.id]=1;else delete done[c.dataset.id];sv("jc-at-lo",done);lop()}});
+ $("lorst").onclick=function(){done={};sv("jc-at-lo",done);[].forEach.call(document.querySelectorAll(".lo input"),function(c){c.checked=false});lop()};lop()})();
+/* glossary search */
+$("gfind").oninput=function(){var q=this.value.toLowerCase();var dts=document.querySelectorAll("#gl dt");[].forEach.call(dts,function(dt){var dd=dt.nextElementSibling;var hit=!q||(dt.textContent+" "+dd.textContent).toLowerCase().indexOf(q)>=0;dt.hidden=dd.hidden=!hit})};
+/* quiz */
+var QS=[["Principles and practices", "What is the first step in a systematic approach to solving a problem?", ["Understand and define the problem", "Choose the materials", "Paint the final product", "Start building"], 0, "You must understand the problem before you can plan a solution."], ["Principles and practices", "Why is a prototype made?", ["To save time by skipping planning", "To avoid writing a brief", "To use as the finished product only", "To test and improve ideas before the final product"], 3, "A prototype lets you find faults and refine the design."], ["Principles and practices", "What does 'iterative design' mean?", ["Designing once and finishing", "Copying another product", "Only using computer tools", "Repeating a cycle of design, make, test and improve"], 3, "Iteration means improving a design over several rounds."], ["Principles and practices", "Why do designers think about the end user at every stage?", ["So the product looks like others", "So the product meets the needs of the people using it", "So the product is cheaper to make", "So the design takes less time"], 1, "User needs shape every decision, from size to materials."], ["Principles and practices", "Which of these is a constraint on a design?", ["A sketch of the idea", "A budget of €10", "A pencil", "A good idea"], 1, "A constraint is a limit such as cost, time, size, or materials."], ["Principles and practices", "What is the purpose of a risk assessment before using a machine?", ["To decide who works the quickest", "To check the colour of the machine", "To identify hazards and decide how to reduce the risk", "To make the machine run faster"], 2, "A risk assessment identifies hazards and control measures."], ["Principles and practices", "Which should you always wear when using a pillar drill or bench grinder?", ["Open sandals", "Eye protection", "A loose scarf", "Jewellery"], 1, "Eye protection guards against flying chips; loose clothing and jewellery can be caught."], ["Principles and practices", "Why should long hair be tied back in the workshop?", ["It looks tidier", "It keeps the hair clean", "It can get caught in moving machinery", "It helps you see the drawing"], 2, "Entanglement in rotating parts is a serious hazard."], ["Principles and practices", "Which is the best reason to plan a project step by step?", ["It helps you use time, tools and materials well", "It makes the product heavier", "It means you do not need a design", "It removes the need to test"], 0, "A plan helps manage time and resources and spot problems early."], ["Principles and practices", "A designer chooses aluminium for a bike frame because it is light and does not rust easily. This is an example of…", ["controlling a system", "writing a brief", "selecting a material for its properties", "choosing a colour"], 2, "Materials are chosen for properties that match the job."], ["Principles and practices", "Why keep a learning log during a project?", ["To make the project longer", "To replace the final product", "To copy from other students", "To record the steps from idea to finished product as evidence"], 3, "A log documents progress and your thinking from concept to realisation."], ["Principles and practices", "Which is a good way to communicate a design idea clearly?", ["A long unlabelled paragraph", "A photograph with no explanation", "A labelled sketch", "A blank page"], 2, "Labelled sketches show features and reasons at a glance."], ["Energy and control", "In a simple control system, what are the three main parts?", ["Start, stop, wait", "Power, wire, switch", "Input, process, output", "Plan, make, test"], 2, "Inputs are processed and produce outputs."], ["Energy and control", "Which of these is an input device?", ["A motor", "A light sensor", "An LED", "A buzzer"], 1, "Sensors and switches are inputs; buzzers, LEDs and motors are outputs."], ["Energy and control", "Which of these is an output device?", ["A push button", "A motor", "A temperature sensor", "A light sensor"], 1, "Motors, buzzers and LEDs are outputs."], ["Energy and control", "A heater turns off when a sensor shows the room has reached the set temperature. This is an example of…", ["a manual system", "a closed loop system", "an open loop system", "a system with no input"], 1, "The sensor feeds information back, so the system can adjust itself."], ["Energy and control", "A toaster runs for a set time with no check on how brown the toast is. This is an example of…", ["a feedback system", "an open loop system", "an analogue sensor", "a closed loop system"], 1, "There is no feedback about the result."], ["Energy and control", "In a flowchart, which shape is used for a decision (yes/no)?", ["Circle", "Diamond", "Rectangle", "Oval"], 1, "A decision has a question and two exits."], ["Energy and control", "Which shape marks the start and end of a flowchart?", ["Triangle", "Diamond", "Rounded terminator (oval)", "Parallelogram"], 2, "Start and end use rounded terminators."], ["Energy and control", "What does a microcontroller do in a control system?", ["Reads inputs and controls outputs according to a program", "Produces light only", "Stores electricity", "Cuts materials"], 0, "It is a small programmable computer on a chip."], ["Energy and control", "What does the instruction 'IF the light level is low THEN turn on the lamp' describe?", ["A measurement of power", "A loop", "A decision in a program", "A material"], 2, "IF…THEN is a decision based on an input."], ["Energy and control", "What is the energy transformation in an electric motor?", ["Heat to light", "Electrical to movement (kinetic)", "Sound to electrical", "Chemical to sound"], 1, "A motor changes electrical energy into kinetic energy (and some heat)."], ["Energy and control", "What is the energy transformation in a solar panel?", ["Heat to movement", "Sound to heat", "Electrical to light", "Light to electrical"], 3, "A solar (photovoltaic) panel changes light into electricity."], ["Energy and control", "A bulb receives 10 J of electrical energy and gives out 2 J as light. What happens to the other 8 J?", ["It becomes sound only", "It is lost, mainly as heat", "It is stored in the bulb forever", "It is destroyed"], 1, "Energy is not destroyed. The wasted energy is mostly heat, so the bulb is not very efficient."], ["Energy and control", "Which action is an example of energy conservation?", ["Switching off lights in an empty room", "Opening windows with the heating on", "Leaving a laptop charging all night", "Using a very old fridge"], 0, "Reducing unnecessary use saves energy."], ["Energy and control", "Which of these is a renewable energy source?", ["Oil", "Natural gas", "Coal", "Wind"], 3, "Wind, solar and hydro are naturally replaced."], ["Energy and control", "Why test an idea in a simulation before building it?", ["To skip the design stage", "To find problems cheaply and safely", "Because simulations are always right", "To avoid making anything"], 1, "Simulation lets you try ideas without using real materials."], ["Energy and control", "A sensor detects light as a voltage that can vary smoothly. This is an…", ["open loop", "digital signal", "output", "analogue signal"], 3, "Analogue signals change smoothly through a range of values."], ["Energy and control", "A digital signal has how many possible states?", ["Two", "Three", "Unlimited", "Ten"], 0, "A digital signal is either on or off (1 or 0)."], ["Technology and society", "Which is an environmental impact of throwing away old electronics?", ["Lower mining of metals", "E-waste that can pollute if not recycled", "More clean air", "Less energy used"], 1, "Electronic waste contains materials that can harm the environment if handled badly."], ["Technology and society", "Which is a social benefit of technology?", ["It is always free", "It can help people stay in touch", "It stops all pollution", "It makes every job disappear"], 1, "Technology brings benefits and drawbacks; communication is a key benefit."], ["Technology and society", "Which is a possible negative impact of technology on people?", ["Better access to information", "Faster communication", "Spending too much time on screens", "New jobs"], 2, "Technology also has drawbacks such as screen time."], ["Technology and society", "Why should a designer think about the environment when choosing materials?", ["Some materials can be recycled or cause less harm", "The colour is always green", "It reduces the need for a brief", "It makes the product cheaper"], 0, "Choices affect resources, energy and waste."], ["Technology and society", "Which of these helps protect your personal data online?", ["Using a strong password and not sharing it", "Sharing your password with friends", "Posting your address publicly", "Using the same short password everywhere"], 0, "Strong, private, different passwords protect your accounts."], ["Technology and society", "A strong password should…", ["be shared with a friend", "be '123456'", "be your name", "be long and mix letters, numbers and symbols"], 3, "Longer, more varied passwords are harder to guess."], ["Technology and society", "What is 'user needs' in design?", ["The cost of materials", "The number of tools", "What the people using a product require from it", "The size of the factory"], 2, "User needs include comfort, safety, ease of use and cost."], ["Technology and society", "Which is an economic factor in choosing a material?", ["Its cost", "Its name", "Its smell", "Its colour"], 0, "Economic factors include cost and value for money."], ["Technology and society", "Which is an ethical consideration in design?", ["Choosing the quickest drawing method", "Using the biggest screen", "Making sure materials are produced fairly and safely", "Choosing the brightest colour"], 2, "Ethical considerations include fairness, safety and honesty."], ["Technology and society", "Why is a local context useful when studying technology?", ["It makes the topic easier to skip", "It means you do not need research", "It avoids all evaluation", "It lets you see real systems and their effects around you"], 3, "Examining local examples (school, community) makes the learning real."], ["Technology and society", "A school's automatic corridor lights switch off when no one is present. Which benefit does this give?", ["Uses more power", "Increases waste", "Needs no sensor", "Saves energy"], 3, "A movement sensor controls the lights so they are only on when needed."], ["Technology and society", "What does it mean to evaluate a solution?", ["Judge how well it solves the problem, using evidence", "Describe the tools used", "Draw it again in colour", "Make another copy"], 0, "Evaluation compares results to the brief and gives reasons."]];
+var topics=[];QS.forEach(function(q){if(topics.indexOf(q[0])<0)topics.push(q[0])});
+$("topicpick").innerHTML=topics.map(function(t){return '<label class="chk"><input type="checkbox" value="'+t+'" checked> '+t+'</label>'}).join("");
+var cur=[],ans=[];
+function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function hist(){var h=ld("jc-at-quiz",{}),out="";topics.forEach(function(t){if(h[t])out+='<li>'+t+': last '+h[t].last+'%, best '+h[t].best+'%</li>'});$("hist").innerHTML=out?'<h3>Your results on this device</h3><ul>'+out+'</ul>':''}
+hist();
+$("start").onclick=function(){
+ var sel=[].slice.call(document.querySelectorAll("#topicpick input:checked")).map(function(c){return c.value});
+ var pool=QS.filter(function(q){return sel.indexOf(q[0])>=0});
+ if(!pool.length){$("hist").innerHTML='<p class="note">Pick at least one strand.</p>';return}
+ cur=shuffle(pool.slice()).slice(0,parseInt($("count").value,10));ans=cur.map(function(){return -1});
+ $("setup").hidden=true;$("result").hidden=true;$("quiz").hidden=false;render()};
+function render(){
+ var h="";cur.forEach(function(q,i){
+  h+='<h3>'+(i+1)+'. '+q[1]+' <span class="tag">('+q[0]+')</span></h3>';
+  q[2].forEach(function(o,j){h+='<button class="opt" aria-pressed="'+(ans[i]===j)+'" data-q="'+i+'" data-o="'+j+'">'+o+'</button>'})});
+ h+='<p><button class="cta" id="submit">Submit and see score</button></p>';
+ $("quiz").innerHTML=h;
+ [].forEach.call(document.querySelectorAll(".opt"),function(b){b.onclick=function(){ans[+b.dataset.q]=+b.dataset.o;
+  [].forEach.call(document.querySelectorAll('.opt[data-q="'+b.dataset.q+'"]'),function(x){x.setAttribute("aria-pressed",x===b)})}});
+ $("submit").onclick=finish}
+function finish(){
+ var s=0,by={},h="";cur.forEach(function(q,i){by[q[0]]=by[q[0]]||[0,0];by[q[0]][1]++;if(ans[i]===q[3]){s++;by[q[0]][0]++}});
+ var h0=ld("jc-at-quiz",{});Object.keys(by).forEach(function(t){var p=Math.round(by[t][0]/by[t][1]*100);h0[t]={last:p,best:Math.max(p,(h0[t]||{best:0}).best)}});sv("jc-at-quiz",h0);
+ h+='<p class="score">'+s+' / '+cur.length+' ('+Math.round(s/cur.length*100)+'%)</p><ul>';
+ Object.keys(by).forEach(function(t){h+='<li>'+t+': '+by[t][0]+' / '+by[t][1]+'</li>'});h+='</ul>';
+ cur.forEach(function(q,i){var ok=ans[i]===q[3];
+  h+='<h3>'+(i+1)+'. '+q[1]+'</h3>';
+  q[2].forEach(function(o,j){var c=j===q[3]?" right":(j===ans[i]?" wrong":"");h+='<div class="opt'+c+'">'+(j===q[3]?"&#10003; ":(j===ans[i]?"&#10007; ":""))+o+'</div>'});
+  h+='<p class="exp">'+(ok?"Correct. ":(ans[i]<0?"Not answered. ":"Not quite. "))+q[4]+'</p>'});
+ h+='<p><button class="cta" id="again">Try again</button></p>';
+ $("quiz").hidden=true;$("result").hidden=false;$("result").innerHTML=h;window.scrollTo(0,0);
+ $("again").onclick=function(){$("result").hidden=true;$("setup").hidden=false;hist()}}
+mockRender("junior");
+</script>
+</body>
+</html>
