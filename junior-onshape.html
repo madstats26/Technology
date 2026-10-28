@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Onshape for Junior Cycle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+.nl li{margin:6px 0}
+pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;overflow-x:auto;font:.86rem/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.worked{border:1px solid var(--line);border-left:5px solid var(--hi);padding:8px 12px;margin:10px 0;background:var(--bg)}.worked p{margin:4px 0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
+.linkrow a:hover{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-projects.html">Projects</a> &middot; <a href="junior-tinkercad.html">Tinkercad</a> &middot; <a href="junior-onshape.html">Onshape</a></p>
+<h1>Onshape <span>guide</span></h1>
+<p class="lead">Sketch, build parts, make assemblies and produce working drawings.</p>
+<nav role="tablist" id="tabs"></nav>
+<section id="ostart"><h2>What is Onshape?</h2>
+<p>Onshape is a professional CAD (computer aided design) program that runs in your browser. Your work is saved automatically to your account, and you can open it on any computer.</p>
+<h3>The parts of a document</h3>
+<ul class="nl"><li><b>Part Studio</b>: where you sketch and build individual parts.</li><li><b>Assembly</b>: where you put parts together and make them move.</li><li><b>Drawing</b>: where you make a dimensioned working drawing from a part or assembly.</li></ul>
+<h3>Good habits</h3>
+<ul class="nl"><li>Give each document, part and feature a clear name.</li><li>Work in millimetres and keep your units consistent.</li><li>Save versions at important points so you can go back.</li><li>Model one part at a time, then assemble.</li></ul><div class="note">This page is a guide. Your teacher's brief, instructions and deadlines always come first, and menus can look slightly different from the screenshots and steps your class uses.</div></section>
+<section id="osk"><h2>Sketching</h2>
+<ol class="nl"><li>Choose a plane (Top, Front or Right) and start a <b>Sketch</b>.</li><li>Draw with the line, rectangle or circle tools.</li><li>Add <b>dimensions</b> with the dimension tool so the sketch has exact sizes.</li><li>Add <b>constraints</b> (for example, equal, parallel, perpendicular, concentric) so the shape keeps its rules.</li><li>A <b>fully defined</b> sketch is one that cannot move. Onshape shows under-defined parts in a different colour from fully defined ones, so keep adding dimensions and constraints until it is fully defined.</li><li>Finish the sketch (the green tick).</li></ol>
+<div class="note"><b>Tip:</b> draw the shape roughly first, then dimension it. Sketch on the plane that gives you the view you want.</div></section>
+<section id="ofeat"><h2>Features</h2>
+<p>A <b>feature</b> turns a sketch into a 3D shape.</p>
+<div class="scroll"><table><tr><th>Feature</th><th>What it does</th></tr>
+<tr><td>Extrude</td><td>Pulls a sketch out to make a 3D solid (add) or cuts into a part (remove)</td></tr>
+<tr><td>Fillet</td><td>Rounds an edge</td></tr>
+<tr><td>Chamfer</td><td>Cuts a slanted edge</td></tr>
+<tr><td>Hole</td><td>Makes a drilled hole of a set size</td></tr>
+<tr><td>Shell</td><td>Hollows a solid, leaving walls of a set thickness</td></tr>
+<tr><td>Mirror, Pattern</td><td>Copies a feature (in a line, a circle or across a plane)</td></tr>
+<tr><td>Revolve</td><td>Spins a sketch around an axis to make round parts</td></tr></table></div>
+<h3>Example: a lamp base</h3>
+<ol class="nl"><li>Sketch a circle on the Top plane and dimension its diameter.</li><li>Extrude it to the base thickness.</li><li>Fillet the top edge for a smooth finish.</li><li>Add a hole for the cable or switch.</li></ol></section>
+<section id="oasm"><h2>Assemblies</h2>
+<ol class="nl"><li>Create an <b>Assembly</b> tab and insert your parts.</li><li>The first part is usually <b>fixed</b> so it does not move.</li><li>Add <b>mates</b> to position each part and decide how it can move.</li><li>Drag the parts to check they move the way you expect.</li></ol>
+<div class="scroll"><table><tr><th>Mate</th><th>How the part moves</th></tr>
+<tr><td>Fastened</td><td>Not at all: the parts are fixed together</td></tr>
+<tr><td>Revolute</td><td>Rotates around one axis (a hinge or a shaft)</td></tr>
+<tr><td>Slider</td><td>Slides in one direction</td></tr>
+<tr><td>Cylindrical</td><td>Rotates and slides along the same axis</td></tr>
+<tr><td>Planar</td><td>Moves on a flat surface</td></tr></table></div>
+<h3>Exploded view</h3>
+<p>An exploded view separates the parts so you can see how they fit together. Create it from your assembly, move the parts apart along their assembly directions, and include it in your folio.</p></section>
+<section id="odr"><h2>Drawings</h2>
+<ol class="nl"><li>Create a <b>Drawing</b> from your part or assembly and choose a paper size and a scale.</li><li>Add the standard views: front, plan (top) and side.</li><li>Add an <b>isometric</b> view for a 3D picture.</li><li>Add <b>dimensions</b> that show the overall size and important features.</li><li>Fill in the title block (name, title, scale, date).</li><li>Export as a PDF to put in your folio.</li></ol>
+<h3>Drawing checklist</h3>
+<ul class="nl"><li>Are all the key dimensions shown, and only once each?</li><li>Is the scale stated?</li><li>Are the views lined up and labelled?</li><li>Is the title block complete?</li></ul></section>
+<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tabs=[["ostart", "Getting started"], ["osk", "Sketching"], ["ofeat", "Features"], ["oasm", "Assemblies"], ["odr", "Drawings"], ["qz", "Quick check"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show(tabs[0][0]);
+/* tick lists saved on this device */
+var KEY="jc-onshape",tk=ld(KEY,{});
+function tp(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var g=bar.dataset.g,all=[].slice.call(document.querySelectorAll('.tick[data-g="'+g+'"]')),d=all.filter(function(c){return c.checked}).length;bar.style.width=(all.length?d/all.length*100:0)+"%";bar.parentNode.title=d+" of "+all.length})}
+[].forEach.call(document.querySelectorAll(".tick"),function(c){var k=c.dataset.g+"|"+c.dataset.i;c.checked=!!tk[k];c.onchange=function(){if(c.checked)tk[k]=1;else delete tk[k];sv(KEY,tk);tp()}});tp();
+/* quiz */
+var QZ=[["In Onshape, where do you build an individual part?", ["Part Studio", "Drawing", "Version history", "Assembly"], 0, "The Part Studio is for sketching and modelling parts."], ["What does the Extrude feature do?", ["Makes a drawing", "Hollows out a part", "Turns a sketch into a 3D shape", "Rounds an edge"], 2, "Extrude pulls a sketch out into a solid."], ["Which mate lets a part rotate around one axis, like a hinge?", ["Fastened", "Planar", "Revolute", "Slider"], 2, "A revolute mate is a rotating joint."], ["Which feature rounds an edge?", ["Chamfer", "Fillet", "Extrude", "Shell"], 1, "A fillet rounds; a chamfer cuts a slanted edge."], ["Why do you add dimensions and constraints to a sketch?", ["To make it look neater only", "To change the colour", "So the shape has exact size and keeps its rules", "To reduce file size"], 2, "A fully defined sketch cannot move out of shape."], ["What does an exploded view show?", ["The finished surface colours", "The parts separated, along the lines they assemble", "The circuit diagram", "The part at half size"], 1, "It shows how the parts fit together."]];
+if(QZ.length){var qa=[],qd=false;
+function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
+ if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
+ $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
+ qr()}
+</script>
+</body>
+</html>

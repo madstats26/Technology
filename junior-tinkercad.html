@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tinkercad for Junior Cycle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+.nl li{margin:6px 0}
+pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;overflow-x:auto;font:.86rem/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.worked{border:1px solid var(--line);border-left:5px solid var(--hi);padding:8px 12px;margin:10px 0;background:var(--bg)}.worked p{margin:4px 0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
+.linkrow a:hover{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-projects.html">Projects</a> &middot; <a href="junior-tinkercad.html">Tinkercad</a> &middot; <a href="junior-onshape.html">Onshape</a></p>
+<h1>Tinkercad <span>guide</span></h1>
+<p class="lead">Build and simulate circuits, write simple Arduino programs and design 3D models.</p>
+<nav role="tablist" id="tabs"></nav>
+<section id="tstart"><h2>What is Tinkercad?</h2>
+<p>Tinkercad is a free tool that runs in your browser. It has two parts you use in class:</p>
+<ul class="nl"><li><b>Circuits</b>: build and test an electronic circuit on screen, with no risk to real components.</li><li><b>3D Design</b>: combine simple shapes to make a 3D model that can be 3D printed.</li></ul>
+<p>Your teacher will tell you how to sign in. Your designs save to your account.</p>
+<h3>Why simulate first?</h3>
+<ul class="nl"><li>You can find mistakes before you build the real circuit.</li><li>You can try ideas quickly, such as changing a resistor value.</li><li>It stops you damaging components, for example an LED with no resistor.</li></ul><div class="note">This page is a guide. Your teacher's brief, instructions and deadlines always come first, and menus can look slightly different from the screenshots and steps your class uses.</div></section>
+<section id="tcirc"><h2>Build a circuit</h2>
+<h3>Your first circuit: an LED with a resistor</h3>
+<ol class="nl"><li>Create a new <b>Circuit</b>.</li><li>Drag a <b>battery</b> (or an Arduino 5 V pin), a <b>resistor</b> and an <b>LED</b> from the components list onto the workplane.</li><li>Click a resistor and set its value. For a red LED on 5 V with 20 mA, use R = (5 &minus; 2) &divide; 0.02 = 150 &Omega;. A 220 &Omega; resistor also works and is slightly dimmer.</li><li>Join the parts with wires so the current has one loop: battery &rarr; resistor &rarr; LED &rarr; battery.</li><li>Check the LED direction: current goes in the longer leg (anode) and out of the shorter leg (cathode).</li><li>Click <b>Start Simulation</b>. The LED should light.</li></ol>
+<h3>Useful components</h3>
+<div class="scroll"><table><tr><th>Component</th><th>What it does</th><th>Tip</th></tr>
+<tr><td>Resistor</td><td>Limits current</td><td>Click it to set the value in ohms</td></tr>
+<tr><td>LED</td><td>Gives light</td><td>Always use a resistor in series</td></tr>
+<tr><td>Pushbutton / slide switch</td><td>Input: breaks or completes the circuit</td><td>Pushbutton is on only while pressed</td></tr>
+<tr><td>LDR (photoresistor)</td><td>Resistance changes with light</td><td>Used for light sensing</td></tr>
+<tr><td>Thermistor / temperature sensor</td><td>Changes with temperature</td><td>Use with an Arduino analogue input</td></tr>
+<tr><td>Transistor</td><td>Electronic switch or amplifier</td><td>A small base current switches a larger current</td></tr>
+<tr><td>Relay</td><td>Switches a larger current with a small signal</td><td>Put a diode across the coil</td></tr>
+<tr><td>Buzzer, DC motor</td><td>Outputs</td><td>Motors usually need a transistor or driver</td></tr>
+<tr><td>Multimeter</td><td>Measures voltage, current, resistance</td><td>Use it to check values in your circuit</td></tr>
+<tr><td>Arduino Uno and breadboard</td><td>A programmable controller and a board to connect parts</td><td>Rows on a breadboard are joined in strips</td></tr></table></div>
+<h3>Circuits to try</h3>
+<ul class="nl"><li>LED with a switch.</li><li>Two LEDs, first in series, then in parallel. What differs?</li><li>A night light using an LDR and a transistor.</li><li>A buzzer that sounds when a button is pressed.</li><li>A motor switched by a transistor with a protection diode.</li></ul>
+<h3>Fault-finding checklist</h3>
+<ul class="nl"><li>Is every wire connected at both ends?</li><li>Is the LED the right way round?</li><li>Is there a resistor in series with the LED?</li><li>Do you have a complete loop from the supply and back?</li><li>Is the power on and the simulation started?</li><li>Use the multimeter to check where the voltage is missing.</li></ul></section>
+<section id="tard"><h2>Arduino code basics</h2>
+<p>An Arduino program has two main parts. <b>setup()</b> runs once at the start. <b>loop()</b> repeats forever. In Tinkercad you can use <b>Blocks</b> or <b>Text</b> code.</p>
+<h3>Blink an LED</h3>
+<pre>void setup() {
+  pinMode(13, OUTPUT);       // pin 13 is an output
+}
+void loop() {
+  digitalWrite(13, HIGH);    // LED on
+  delay(1000);               // wait 1 second
+  digitalWrite(13, LOW);     // LED off
+  delay(1000);
+}</pre>
+<h3>Button controls an LED</h3>
+<p>Connect the button between pin 2 and GND. <code>INPUT_PULLUP</code> turns on a built-in resistor, so the pin reads HIGH normally and LOW when the button is pressed.</p>
+<pre>const int buttonPin = 2;
+const int ledPin = 13;
+void setup() {
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledPin, OUTPUT);
+}
+void loop() {
+  if (digitalRead(buttonPin) == LOW) {   // button pressed
+    digitalWrite(ledPin, HIGH);
+  } else {
+    digitalWrite(ledPin, LOW);
+  }
+}</pre>
+<h3>Light sensor (LDR) night light</h3>
+<pre>void setup() {
+  pinMode(13, OUTPUT);
+}
+void loop() {
+  int light = analogRead(A0);        // 0 to 1023
+  if (light &lt; 300) {                 // dark
+    digitalWrite(13, HIGH);
+  } else {
+    digitalWrite(13, LOW);
+  }
+}</pre>
+<p class="tag">The threshold (300 here) depends on your circuit. Use the Serial Monitor with <code>Serial.println(light)</code> to see real values.</p>
+<h3>Key ideas</h3>
+<ul class="nl"><li><b>Input</b>: <code>digitalRead</code> (on/off) and <code>analogRead</code> (a value from 0 to 1023).</li><li><b>Output</b>: <code>digitalWrite</code>. <b>Decision</b>: <code>if / else</code>. <b>Wait</b>: <code>delay(milliseconds)</code>.</li><li>Draw a <b>flowchart</b> of your program before coding it.</li></ul></section>
+<section id="t3d"><h2>3D Design</h2>
+<p>You build 3D models by combining simple shapes.</p>
+<ul class="nl"><li><b>Shapes</b>: drag a box, cylinder or other shape onto the <b>workplane</b>.</li><li><b>Size</b>: click a shape and type dimensions, or use the ruler.</li><li><b>Hole</b>: change a shape to a hole, then group it with a solid to cut it away. This makes slots, holes and cut-outs.</li><li><b>Group</b> joins shapes together. <b>Align</b> lines shapes up exactly.</li><li><b>Check</b> the model before printing: the right size, nothing floating, and flat surfaces on the bottom.</li></ul>
+<h3>Before 3D printing</h3>
+<ul class="nl"><li>Export the model (for example as an STL file) and open it in the slicer (Cura) to set the layer height, infill and supports.</li><li>Thin walls and overhangs may need changing, or supports.</li><li>Think about print time and material.</li></ul></section>
+<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tabs=[["tstart", "Getting started"], ["tcirc", "Circuits"], ["tard", "Arduino code"], ["t3d", "3D design"], ["qz", "Quick check"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show(tabs[0][0]);
+/* tick lists saved on this device */
+var KEY="jc-tinkercad",tk=ld(KEY,{});
+function tp(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var g=bar.dataset.g,all=[].slice.call(document.querySelectorAll('.tick[data-g="'+g+'"]')),d=all.filter(function(c){return c.checked}).length;bar.style.width=(all.length?d/all.length*100:0)+"%";bar.parentNode.title=d+" of "+all.length})}
+[].forEach.call(document.querySelectorAll(".tick"),function(c){var k=c.dataset.g+"|"+c.dataset.i;c.checked=!!tk[k];c.onchange=function(){if(c.checked)tk[k]=1;else delete tk[k];sv(KEY,tk);tp()}});tp();
+/* quiz */
+var QZ=[["Why do you put a resistor in series with an LED?", ["To limit the current and protect the LED", "To make it blink", "To store charge", "To change its colour"], 0, "An LED has almost no resistance by itself, so the current must be limited."], ["Which part of an Arduino program runs forever?", ["loop()", "pinMode()", "setup()", "int"], 0, "setup() runs once; loop() repeats."], ["What does analogRead(A0) return on an Arduino Uno?", ["A letter", "A number from 0 to 1023", "Only 0 or 1", "A voltage in millivolts"], 1, "The analogue input is converted to a 10-bit number."], ["What does delay(1000) do?", ["Waits 1000 seconds", "Repeats 1000 times", "Turns on pin 1000", "Waits 1 second"], 3, "The delay is in milliseconds."], ["In 3D Design, how do you cut a hole through a solid?", ["Use the ruler", "Change the colour", "Make a shape a hole and group it with the solid", "Delete the solid"], 2, "A hole shape removes material from the solid when grouped."], ["Which component lets a small signal switch a larger current?", ["Relay", "Buzzer", "Resistor", "Diode"], 0, "A relay is an electrically operated switch."], ["A button is wired from pin 2 to GND with INPUT_PULLUP. What does digitalRead return when it is pressed?", ["LOW", "1023", "HIGH", "It cannot be read"], 0, "With pull-up, the pin is HIGH when open and LOW when pressed."]];
+if(QZ.length){var qa=[],qd=false;
+function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
+ if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
+ $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
+ qr()}
+</script>
+</body>
+</html>

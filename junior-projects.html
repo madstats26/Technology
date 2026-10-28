@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Junior Cycle Projects</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root{--bg:#f1f4f6;--card:#fff;--ink:#14283c;--mute:#5b6b7a;--line:#c9d3db;--acc:#0b6e99;--hi:#f5c400;--ok:#1d7a4a;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a25;--card:#172635;--ink:#e8eef3;--mute:#9db0c0;--line:#2c4154;--acc:#5ec0e8;--ok:#5fd194;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Public Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:28px 28px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:860px;margin:0 auto;padding:20px 16px 60px}
+h1,h2,h3{font-family:Archivo,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2rem,7vw,3.2rem);font-weight:800;letter-spacing:-.02em}
+h1 span{background:var(--hi);color:#14283c;padding:0 .2em}
+h2{font-size:1.5rem;margin-bottom:8px}
+h3{font-size:1.1rem;margin:18px 0 6px}
+p{max-width:68ch}
+.lead{color:var(--mute);margin:10px 0 18px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+nav button{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+section{display:none;background:var(--card);border:2px solid var(--ink);border-radius:4px;padding:18px}
+section.on{display:block}
+.note{border-left:5px solid var(--hi);padding:8px 12px;background:rgba(245,196,0,.12);margin:12px 0;font-size:.92rem}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Archivo,sans-serif}
+a{color:var(--acc)}
+.bar{display:grid;grid-template-columns:120px 1fr 40px;gap:10px;align-items:center;margin:6px 0;font-size:.92rem}
+.bar i{display:block;height:16px;background:var(--acc);border-radius:2px}
+.tag{font-size:.8rem;color:var(--mute)}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border:1px solid var(--line);padding:12px;border-radius:4px}
+.cta{font:700 1rem Archivo,sans-serif;background:var(--hi);color:#14283c;border:2px solid #14283c;padding:10px 18px;border-radius:4px;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:10px 12px;margin:6px 0;cursor:pointer}
+.opt[aria-pressed="true"]{border-color:var(--acc);background:rgba(11,110,153,.12)}
+.opt.right{border-color:var(--ok)}.opt.wrong{border-color:var(--bad)}
+.chk{display:inline-flex;gap:6px;align-items:center;margin:4px 12px 4px 0}
+.score{font:800 2.4rem Archivo,sans-serif}
+.exp{font-size:.9rem;color:var(--mute);margin:4px 0 14px}
+details{border:1px solid var(--line);border-radius:4px;margin:8px 0;background:var(--bg)}summary{cursor:pointer;padding:10px 12px;font:700 1rem Archivo,sans-serif}.in{padding:0 12px 12px}.ck{display:flex;gap:10px;align-items:flex-start;margin:8px 0;cursor:pointer}.ck input{margin-top:4px;width:18px;height:18px;flex:none}.pb{height:10px;background:var(--line);border-radius:5px;overflow:hidden}.pb i{display:block;height:100%;background:var(--ok);width:0}.cnt{float:right;font-weight:400;color:var(--mute);font-size:.85rem}
+.qimg{display:block;max-width:100%;height:auto;border:1px solid var(--line);background:#fff;margin:8px 0}
+.qh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;border-top:3px solid var(--ink);margin-top:22px;padding-top:8px}
+.ms{white-space:pre-wrap;font:.8rem/1.45 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;background:var(--card);border:1px solid var(--line);padding:10px;margin:8px 0}
+textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:4px;padding:8px}
+.mk{width:5em;font:inherit;padding:4px 6px}
+.radios label{display:inline-flex;gap:6px;align-items:center;margin:4px 14px 4px 0}
+.tot{position:sticky;bottom:0;background:var(--card);border-top:2px solid var(--ink);padding:8px 0;font:700 1rem Archivo,sans-serif}
+.big{font:800 2.2rem Archivo,sans-serif;color:var(--acc);line-height:1}
+.fr{margin:9px 0}.fr .top{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}.fr .top b{white-space:nowrap;font-weight:600;color:var(--mute)}
+.fr .trk{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-top:3px}.fr .trk i{display:block;height:100%;background:var(--acc)}
+h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.chip{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.lo{display:flex;gap:10px;align-items:flex-start;margin:6px 0;cursor:pointer}.lo input{margin-top:5px;width:18px;height:18px;flex:none}
+.prog{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin:4px 0 12px}.prog i{display:block;height:100%;background:var(--ok);width:0}
+.nl li{margin:6px 0}
+pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(--acc);padding:10px 12px;overflow-x:auto;font:.86rem/1.5 ui-monospace,Menlo,Consolas,monospace;margin:8px 0}
+.worked{border:1px solid var(--line);border-left:5px solid var(--hi);padding:8px 12px;margin:10px 0;background:var(--bg)}.worked p{margin:4px 0}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
+.linkrow a:hover{background:var(--ink);color:var(--bg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-projects.html">Projects</a> &middot; <a href="junior-tinkercad.html">Tinkercad</a> &middot; <a href="junior-onshape.html">Onshape</a></p>
+<h1>Junior Cycle <span>projects</span></h1>
+<p class="lead">Project guides and checklists for 1st to 3rd year, and how to keep a good learning log.</p>
+<nav role="tablist" id="tabs"></nav>
+<section id="pover"><h2>Your projects</h2>
+<p>These are the main projects across Junior Cycle. Each has a step-by-step checklist you can tick off. Your ticks are saved on this device only.</p>
+<div class="scroll"><table><tr><th>Year</th><th>Project</th><th>Main skills</th></tr><tr><td>1st year</td><td><b>Bedside lamp</b></td><td>Design process, electronics (LED circuit), CAD, materials, tools and safety.</td></tr><tr><td>1st year</td><td><b>Build a bridge</b></td><td>Structures and forces, triangulation, testing.</td></tr><tr><td>2nd year</td><td><b>Cams project</b></td><td>Cams and followers, mechanisms, making, CAD.</td></tr><tr><td>2nd year</td><td><b>Mechanisms project</b></td><td>Gear ratios, pulleys, linkages, mechanical advantage.</td></tr><tr><td>3rd year</td><td><b>Junior Cycle project</b></td><td>The full design process, planning, making, testing, evaluating and documenting.</td></tr></table></div>
+<p>The two Classroom-Based Assessments are explained on the <a href="junior.html">Junior Cycle page</a>. Use the tools pages to build your work: <a href="junior-tinkercad.html">Tinkercad</a> for circuits and simple 3D designs, and <a href="junior-onshape.html">Onshape</a> for CAD.</p><div class="note">This page is a guide. Your teacher's brief, instructions and deadlines always come first, and menus can look slightly different from the screenshots and steps your class uses.</div></section>
+<section id="pcards"><h2>Project guides</h2><details><summary>1st year: Bedside lamp</summary><div class="in"><p>Design and make a bedside lamp from recycled materials, using electronics and CAD.</p><p class="tag">Skills: Design process, electronics (LED circuit), CAD, materials, tools and safety.</p><h4>Steps</h4><div class="prog"><i data-g="lamp"></i></div><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="0"><span>Read the brief and write down who the lamp is for and what it must do</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="1"><span>Research existing bedside lamps and note what works well</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="2"><span>Sketch several ideas and annotate each one</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="3"><span>Choose one idea and give reasons</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="4"><span>Draw it in CAD (Onshape or Tinkercad) and add dimensions</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="5"><span>Build and test the LED circuit first (simulate it in Tinkercad Circuits)</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="6"><span>Mark out, cut and shape your recycled materials safely</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="7"><span>Assemble the lamp and test that it works</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="8"><span>Evaluate: what worked, what you would change</span></label><label class="lo"><input type="checkbox" class="tick" data-g="lamp" data-i="9"><span>Add photographs and notes to your learning log</span></label><div class="note"><b>Tip:</b> Check the circuit has a resistor in series with the LED. Test the circuit before you fix it inside the lamp.</div></div></details><details><summary>1st year: Build a bridge</summary><div class="in"><p>Design, build and test a bridge that carries a load.</p><p class="tag">Skills: Structures and forces, triangulation, testing.</p><h4>Steps</h4><div class="prog"><i data-g="bridge"></i></div><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="0"><span>Write down the span, load and any limits in the brief</span></label><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="1"><span>Research bridge types (beam, arch, truss, suspension)</span></label><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="2"><span>Sketch designs and choose one using triangulation where it helps</span></label><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="3"><span>Predict where tension and compression will act</span></label><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="4"><span>Build accurately with neat joints</span></label><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="5"><span>Test by adding load slowly and note where it bends or fails</span></label><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="6"><span>Improve the design and test again</span></label><label class="lo"><input type="checkbox" class="tick" data-g="bridge" data-i="7"><span>Compare your prediction with what happened and write it up</span></label><div class="note"><b>Tip:</b> A strong bridge puts the material where the forces are. Record the load it held and what failed first.</div></div></details><details><summary>2nd year: Cams project</summary><div class="in"><p>Design and make a cam-driven model.</p><p class="tag">Skills: Cams and followers, mechanisms, making, CAD.</p><h4>Steps</h4><div class="prog"><i data-g="cams"></i></div><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="0"><span>Decide what movement the follower must make (slow rise, quick drop, smooth up and down)</span></label><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="1"><span>Pick a cam shape that gives that movement (circular, pear, snail)</span></label><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="2"><span>Sketch the cam, follower, frame and handle with sizes</span></label><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="3"><span>Model the parts in CAD or card and check how they fit</span></label><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="4"><span>Make the cam accurately and test the motion</span></label><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="5"><span>Build the frame and fix the shaft so the cam turns smoothly</span></label><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="6"><span>Test, adjust and record changes</span></label><label class="lo"><input type="checkbox" class="tick" data-g="cams" data-i="7"><span>Evaluate against the movement you wanted</span></label><div class="note"><b>Tip:</b> Small errors in the cam shape give jerky movement. Check that the follower stays in contact with the cam.</div></div></details><details><summary>2nd year: Mechanisms project</summary><div class="in"><p>Design and make a mechanism that uses gears, pulleys or linkages.</p><p class="tag">Skills: Gear ratios, pulleys, linkages, mechanical advantage.</p><h4>Steps</h4><div class="prog"><i data-g="mech"></i></div><label class="lo"><input type="checkbox" class="tick" data-g="mech" data-i="0"><span>Write what the mechanism must do and the speed or force you need</span></label><label class="lo"><input type="checkbox" class="tick" data-g="mech" data-i="1"><span>Calculate the gear or pulley ratio</span></label><label class="lo"><input type="checkbox" class="tick" data-g="mech" data-i="2"><span>Sketch and plan the parts and the layout</span></label><label class="lo"><input type="checkbox" class="tick" data-g="mech" data-i="3"><span>Model and test the layout before making the final parts</span></label><label class="lo"><input type="checkbox" class="tick" data-g="mech" data-i="4"><span>Make and assemble the parts</span></label><label class="lo"><input type="checkbox" class="tick" data-g="mech" data-i="5"><span>Test the speed and force, then compare with your calculations</span></label><label class="lo"><input type="checkbox" class="tick" data-g="mech" data-i="6"><span>Improve, record changes and evaluate</span></label><div class="note"><b>Tip:</b> Show your ratio calculation: ratio = driven teeth ÷ driver teeth. Test the real speed and compare.</div></div></details><details><summary>3rd year: Junior Cycle project</summary><div class="in"><p>The SEC brief is released in third year. You design and make a solution, and document your work.</p><p class="tag">Skills: The full design process, planning, making, testing, evaluating and documenting.</p><h4>Steps</h4><div class="prog"><i data-g="jc"></i></div><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="0"><span>Read the brief carefully and underline the key words</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="1"><span>Analyse the problem and the user's needs</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="2"><span>Research existing solutions and record what you learned</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="3"><span>Generate a range of ideas with annotated sketches</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="4"><span>Choose and justify one idea against your specification</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="5"><span>Make working drawings and a materials and process plan</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="6"><span>Build and test a prototype or model, and record changes</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="7"><span>Manufacture the final solution safely</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="8"><span>Test it against the specification and evaluate it</span></label><label class="lo"><input type="checkbox" class="tick" data-g="jc" data-i="9"><span>Complete and check your documentation, photographs and learning log</span></label><div class="note"><b>Tip:</b> Keep your learning log up to date every week. Evidence of your thinking and changes is as important as the finished project.</div></div></details></section>
+<section id="plog"><h2>Learning log</h2>
+<p>A learning log is your record of the project from idea to finished product. It is the evidence of your thinking. Keep it up to date as you go, not at the end.</p>
+<h3>What to record every lesson</h3>
+<ul class="nl"><li>The date and what you set out to do</li><li>What you did, with a sketch or photograph</li><li>What went wrong and how you fixed it</li><li>The decision you made and <b>why</b></li><li>What you will do next</li></ul>
+<h3>Make your evidence strong</h3>
+<ul class="nl"><li>Label every sketch and photograph.</li><li>Show your calculations and testing results.</li><li>Show iteration: the first version, what you changed, and the improved version.</li><li>Record your sources when you research.</li><li>Finish with an honest evaluation against the brief.</li></ul>
+<h3>Useful sentence starters</h3>
+<ul class="nl"><li>I chose this idea because&hellip;</li><li>When I tested it, I found&hellip;</li><li>To improve it, I changed&hellip;</li><li>If I did it again, I would&hellip;</li></ul></section>
+<section id="qz"><h2>Quick check</h2><div id="qz"></div></section>
+
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var tabs=[["pover", "Overview"], ["pcards", "Project guides"], ["plog", "Learning log"], ["qz", "Quick check"]];
+function show(id){tabs.forEach(function(t){$(t[0]).classList.toggle("on",t[0]===id);$("t-"+t[0]).setAttribute("aria-selected",t[0]===id)})}
+tabs.forEach(function(t){var b=document.createElement("button");b.id="t-"+t[0];b.textContent=t[1];b.setAttribute("role","tab");b.onclick=function(){show(t[0])};$("tabs").appendChild(b)});
+show(tabs[0][0]);
+/* tick lists saved on this device */
+var KEY="jc-projects",tk=ld(KEY,{});
+function tp(){[].forEach.call(document.querySelectorAll(".prog i"),function(bar){var g=bar.dataset.g,all=[].slice.call(document.querySelectorAll('.tick[data-g="'+g+'"]')),d=all.filter(function(c){return c.checked}).length;bar.style.width=(all.length?d/all.length*100:0)+"%";bar.parentNode.title=d+" of "+all.length})}
+[].forEach.call(document.querySelectorAll(".tick"),function(c){var k=c.dataset.g+"|"+c.dataset.i;c.checked=!!tk[k];c.onchange=function(){if(c.checked)tk[k]=1;else delete tk[k];sv(KEY,tk);tp()}});tp();
+/* quiz */
+var QZ=[["What is the main purpose of a learning log?", ["To copy another student's work", "To record the project from idea to finished product as evidence", "To list the tools in the room", "To replace the final project"], 1, "The log documents your thinking and progress."], ["Which is the best way to show iteration?", ["Show only the final photo", "Write a long paragraph with no pictures", "List only the materials", "Show the first version, what you changed and the improved version"], 3, "Iteration means improving a design through repeated testing."], ["A gear train has a 10-tooth driver and a 40-tooth driven gear. What is the ratio?", ["10 : 1", "4 : 1", "40 : 1", "1 : 4"], 1, "Ratio = driven teeth ÷ driver teeth = 40 ÷ 10 = 4."], ["When testing a bridge, what should you do?", ["Skip testing to save time", "Add the load slowly and note where it bends or fails", "Test only after the project is marked", "Add all the load at once and look away"], 1, "Slow loading shows where the forces act and where the design is weak."], ["Why should you test an LED circuit before fitting it inside a lamp?", ["So problems are easy to find and fix", "It is not necessary", "So the wires are longer", "So the lamp is heavier"], 0, "It is much harder to fix a fault once the circuit is fixed inside."]];
+if(QZ.length){var qa=[],qd=false;
+function qr(){var h="";QZ.forEach(function(q,i){h+="<h3>"+(i+1)+". "+q[0]+"</h3>";q[1].forEach(function(o,j){var cls="opt";if(qd){if(j===q[2])cls+=" right";else if(j===qa[i])cls+=" wrong"}h+='<button class="'+cls+'" data-q="'+i+'" data-o="'+j+'" aria-pressed="'+(qa[i]===j)+'" '+(qd?"disabled":"")+'>'+o+'</button>'});if(qd)h+='<p class="exp">'+(qa[i]===q[2]?"Correct. ":"Not quite. ")+q[3]+"</p>"});
+ if(!qd)h+='<p><button class="cta" id="qsub">Check my answers</button></p>';else{var s=0;QZ.forEach(function(q,i){if(qa[i]===q[2])s++});h='<p class="score">'+s+' / '+QZ.length+'</p>'+h+'<p><button class="cta" id="qagain">Try again</button></p>'}
+ $("qz").innerHTML=h;[].forEach.call($("qz").querySelectorAll(".opt"),function(b){b.onclick=function(){if(qd)return;qa[+b.dataset.q]=+b.dataset.o;qr()}});
+ if($("qsub"))$("qsub").onclick=function(){qd=true;qr();window.scrollTo(0,0)};if($("qagain"))$("qagain").onclick=function(){qa=[];qd=false;qr()}}
+ qr()}
+</script>
+</body>
+</html>

@@ -11,6 +11,7 @@ topic frequency, project and portfolio guidance, and practice quizzes.
 ## Contents
 - `index.html` is the home page where students choose Junior Cycle or Senior Cycle.
 - `junior.html` is Junior Cycle Applied Technology (course, learning outcomes checklist, assessment, key terms, quiz).
+- `junior-projects.html`, `junior-tinkercad.html` and `junior-onshape.html` are Junior Cycle guides (project checklists and learning log, Tinkercad circuits and Arduino, Onshape CAD).
 - `senior-learn.html` is the Senior Cycle learning page (year plan, core and option notes, formulas, exam skills).
 - `senior.html` is Leaving Cert Technology Higher Level (past papers, breakdown, topics, project, practice).
 - No build step is needed.
