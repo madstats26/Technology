@@ -73,14 +73,13 @@ dl{margin:0}dt{font:700 1rem Archivo,sans-serif;margin-top:12px}dd{margin:2px 0 
 .plan td:first-child{width:34px}
 .plan tr.dn td{color:var(--mute);text-decoration:line-through}
 .nl li{margin:6px 0}
-.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}.linkrow a:hover{background:var(--ink);color:var(--bg)}.tcard{display:block;text-decoration:none;color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}.tcard:hover,.tcard:focus-visible{background:var(--bg)}.tcard h3{color:var(--acc)}</style>
+.linkrow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}.linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}.linkrow a:hover{background:var(--ink);color:var(--bg)}.tcard{display:block;text-decoration:none;color:var(--ink);border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}.tcard:hover,.tcard:focus-visible{background:var(--bg)}.tcard h3{color:var(--acc)}nav{flex-wrap:wrap;overflow-x:visible}nav a.tablink{font:600 .95rem "Public Sans",sans-serif;white-space:nowrap;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:4px;text-decoration:none;display:inline-block}nav a.tablink:hover,nav a.tablink:focus-visible{background:var(--ink);color:var(--bg)}</style>
 </head>
 <body>
 <div class="wrap">
 <p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="senior.html">Senior Cycle</a></p>
 <h1>Junior Cycle <span>Applied Technology</span></h1>
 <p class="lead">Your year plan, notes, learning outcomes, how you are assessed, project help, key terms and practice questions.</p>
-<div class="linkrow"><a href="junior-projects.html">Projects</a><a href="junior-tinkercad.html">Tinkercad</a><a href="junior-onshape.html">Onshape</a></div>
 <nav role="tablist" id="tabs"></nav>
 <div class="chips" id="subtabs" aria-label="Sections"></div>
 
@@ -204,8 +203,7 @@ function mockRender(cycle){var L=(window.MOCKS||[]).filter(function(m){return m.
  L.forEach(function(m){h+='<tr><td><b>'+m.title+'</b>'+(m.date?'<br><span class="tag">'+m.date+'</span>':'')+(m.note?'<br><span class="tag">'+m.note+'</span>':'')+'</td><td>'+(m.paper?'<a href="mocks/'+m.paper+'" target="_blank" rel="noopener">Open paper</a>':'')+'</td><td>'+(m.solutions?'<a href="mocks/'+m.solutions+'" target="_blank" rel="noopener">Open solutions</a>':'<span class="tag">Coming soon</span>')+'</td></tr>'});
  el.innerHTML=h+'</table></div>'}
 
-var groups=[["Course",[["course","The course"],["jplan","Year plan"],["ctopics","Topics"],["outcomes","Learning outcomes"]]],
-["Learn",[["jnotes","Notes"],["terms","Key terms"]]],
+var groups=[["Course",[["course","The course"],["jplan","Year plan"],["ctopics","Topics"],["jnotes","Notes"],["terms","Key terms"],["outcomes","Learning outcomes"]]],
 ["Assess",[["assess","How you are assessed"],["jproj","Project help"]]],
 ["Exams",[["practice","Quiz"],["papers","Past papers"],["mocks","Mock papers"]]]];
 var allIds=[];groups.forEach(function(g){g[1].forEach(function(t){allIds.push(t[0])})});
@@ -217,6 +215,7 @@ function showGroup(gi){curG=gi;groups.forEach(function(g,i){$("t-"+i).setAttribu
  [].forEach.call($("subtabs").children,function(b){b.onclick=function(){showSec(b.dataset.id)}});showSec(secs[0][0])}
 function show(id){groups.forEach(function(g,gi){g[1].forEach(function(t){if(t[0]===id){showGroup(gi);showSec(id)}})})}
 groups.forEach(function(g,i){var b=document.createElement("button");b.id="t-"+i;b.textContent=g[0];b.setAttribute("role","tab");b.onclick=function(){showGroup(i)};$("tabs").appendChild(b)});
+[["junior-projects.html","Projects"],["junior-tinkercad.html","Tinkercad"],["junior-onshape.html","Onshape"]].forEach(function(l){var x=document.createElement("a");x.href=l[0];x.textContent=l[1];x.className="tablink";$("tabs").appendChild(x)});
 showGroup(0);
 function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
