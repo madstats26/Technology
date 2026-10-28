@@ -201,7 +201,7 @@ function mockRender(cycle){var L=(window.MOCKS||[]).filter(function(m){return m.
 var groups=[["Course",[["course","The course"],["jplan","Year plan"],["outcomes","Learning outcomes"]]],
 ["Learn",[["jnotes","Notes"],["terms","Key terms"]]],
 ["Assess",[["assess","How you are assessed"],["jproj","Project help"]]],
-["Practise",[["practice","Quiz"],["papers","Past papers"],["mocks","Mock papers"]]]];
+["Exams",[["practice","Quiz"],["papers","Past papers"],["mocks","Mock papers"]]]];
 var allIds=[];groups.forEach(function(g){g[1].forEach(function(t){allIds.push(t[0])})});
 var curG=0;
 function showSec(id){allIds.forEach(function(x){$(x).classList.toggle("on",x===id)});
