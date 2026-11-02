@@ -74,7 +74,7 @@ pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(
 .linkrow a{font:600 .92rem "Public Sans",sans-serif;border:2px solid var(--ink);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:4px;text-decoration:none}
 .linkrow a:hover{background:var(--ink);color:var(--bg)}
 </style>
-</head>
+<style>.fig{margin:12px 0;text-align:center}.fig svg{max-width:100%;height:auto;color:var(--ink)}.fig figcaption{font-size:.85rem;color:var(--mute);margin-top:4px}.fig .t{fill:currentColor;font:13px system-ui,sans-serif}.fig .s{stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}.fig .a{stroke:var(--acc);stroke-width:2.5;fill:none;stroke-linecap:round}.fig .f{fill:var(--card);stroke:currentColor;stroke-width:2}.fig .h{fill:var(--acc);stroke:none}.fig .tb{fill:currentColor;font:600 13px system-ui,sans-serif}</style></head>
 <body>
 <div class="wrap">
 <p class="tag"><a href="index.html">&larr; Home</a> &middot; <a href="junior.html">Junior Cycle</a> &middot; <a href="junior-electronics.html">Electronics</a> &middot; <a href="junior-mechanisms.html">Mechanisms</a> &middot; <a href="junior-design.html">Design process</a> &middot; <a href="junior-materials.html">Materials</a> &middot; <a href="junior-structures.html">Structures</a> &middot; <a href="junior-logic.html">Logic gates</a></p>
@@ -85,9 +85,12 @@ pre{background:var(--bg);border:1px solid var(--line);border-left:5px solid var(
 <p>A logic gate makes a decision using inputs that are either <b>0</b> (off, low) or <b>1</b> (on, high). Computers and control systems are made of logic gates.</p>
 <h3>The three basic gates</h3>
 <div class="grid">
-<div class="box"><h3 style="margin-top:0">AND</h3><p>Output is 1 only if <b>both</b> inputs are 1.</p><div class="scroll"><table><tr><th>A</th><th>B</th><th>Out</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div></div>
-<div class="box"><h3 style="margin-top:0">OR</h3><p>Output is 1 if <b>either</b> input is 1 (or both).</p><div class="scroll"><table><tr><th>A</th><th>B</th><th>Out</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div></div>
-<div class="box"><h3 style="margin-top:0">NOT</h3><p>Output is the <b>opposite</b> of the input.</p><div class="scroll"><table><tr><th>A</th><th>Out</th></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table></div></div>
+<div class="box"><h3 style="margin-top:0">AND</h3><figure class="fig" role="img" aria-label="AND gate symbol"><svg viewBox="0 0 120 80" width="120"><path class="s" d="M5 28H32 M5 52H32"/><path class="s" d="M30 15H60A25 25 0 0 1 60 65H30z"/><path class="s" d="M85 40H115"/></svg><figcaption>AND gate symbol</figcaption></figure>
+<p>Output is 1 only if <b>both</b> inputs are 1.</p><div class="scroll"><table><tr><th>A</th><th>B</th><th>Out</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div></div>
+<div class="box"><h3 style="margin-top:0">OR</h3><figure class="fig" role="img" aria-label="OR gate symbol"><svg viewBox="0 0 120 80" width="120"><path class="s" d="M5 28H32 M5 52H32"/><path class="s" d="M28 15Q70 15 90 40Q70 65 28 65Q45 40 28 15z"/><path class="s" d="M90 40H115"/></svg><figcaption>OR gate symbol</figcaption></figure>
+<p>Output is 1 if <b>either</b> input is 1 (or both).</p><div class="scroll"><table><tr><th>A</th><th>B</th><th>Out</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div></div>
+<div class="box"><h3 style="margin-top:0">NOT</h3><figure class="fig" role="img" aria-label="NOT gate symbol"><svg viewBox="0 0 120 80" width="120"><path class="s" d="M5 40H35"/><path class="s" d="M35 15L35 65L80 40z"/><circle class="s" cx="85" cy="40" r="5"/><path class="s" d="M90 40H115"/></svg><figcaption>NOT gate symbol</figcaption></figure>
+<p>Output is the <b>opposite</b> of the input.</p><div class="scroll"><table><tr><th>A</th><th>Out</th></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table></div></div>
 </div>
 <h3>Two more gates</h3><ul class="nl"><li><b>NAND</b> is AND followed by NOT: the output is 0 only when both inputs are 1.</li><li><b>NOR</b> is OR followed by NOT: the output is 1 only when both inputs are 0.</li></ul>
 <div class="grid">
