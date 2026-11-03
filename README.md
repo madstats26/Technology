@@ -18,6 +18,7 @@ topic frequency, project and portfolio guidance, and practice quizzes.
 - No build step is needed.
 - `papers/` holds the past papers, marking schemes and the 2027 coursework brief.
 - `q/` holds the question images used by the practice modes.
+- `project/` holds the 2027 exemplar folio (sections 1 to 3) as a Word file and its Gantt chart image, shown under Project > Exemplar folio.
 
 Exam papers and marking schemes are copyright of the State Examinations Commission
 (examinations.ie).

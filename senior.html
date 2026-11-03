@@ -119,7 +119,7 @@ h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
 
 <section id="project">
 <h2>Project and portfolio</h2>
-<p><button class="cta" id="pv1">2027 plan and checklist</button> <button class="cta" id="pv2">Briefs and portfolios</button> <button class="cta" id="pv3">2027 project ideas</button></p>
+<p><button class="cta" id="pv1">2027 plan and checklist</button> <button class="cta" id="pv2">Briefs and portfolios</button> <button class="cta" id="pv3">2027 project ideas</button> <button class="cta" id="pv4">Exemplar folio: sections 1 to 3</button></p>
 <div id="pview1">
 <h3>Project plan: 2027 Higher Level</h3>
 <p><b>Brief in short:</b> in a context of your choice, with a focus on modern materials and processes, design and make a working model of a device, system or technical aid that supports independent living, wellbeing or social participation in an ageing society. Design folio 100 marks, artefact 100 marks.</p>
@@ -214,6 +214,163 @@ h4{font:700 1rem Archivo,sans-serif;margin:18px 0 4px}
 <h3>Past project briefs and marking schemes</h3>
 <div class="note">Brief summaries are written from the Higher Level marking scheme PDFs, which print the thematic brief and coursework marking criteria on their last pages. Each brief asks for a working model with an electro-mechanical element, no larger than 500 mm. Marking scheme PDFs are SEC material and are hosted here for classroom use.</div>
 <div class="scroll"><table><thead><tr><th>Year</th><th>Thematic brief</th><th>Marking scheme</th></tr></thead><tbody id="briefs"></tbody></table></div>
+</div>
+<div id="pview4" hidden>
+<h3>Exemplar folio: sections 1 to 3 (2027 Higher Level)</h3>
+<p>A worked example of folio sections 1 to 3 (22 of the 100 folio marks), set out the way a strong H1 candidate might present them for the 2027 brief. The example project is <b>ReachEase</b>, a motorised pull-down kitchen shelf that brings items from a high press down to counter height at the touch of a large button.</p>
+<p><a class="cta" style="display:inline-block;text-decoration:none" href="project/2027-exemplar-folio-sections-1-3.docx" download>Download the Word version</a></p>
+<div class="note"><b>Use this to see the depth and layout expected, not as content to reuse.</b> The SEC instructions treat copied or AI-generated material as plagiarism, and examiners recognise exemplar wording. Your context, research, photos and numbers must be your own. At Higher Level, section 1 covers the broad context and chosen parameters only. Existing solutions, sub-systems and the final brief belong in section 4.</div>
+
+<h3>Section 1: Analysis of thematic brief (7 marks)</h3>
+<p class="tag">Marks for: evidence of research of the broader context of the theme; specification of chosen parameters.</p>
+<h4>1.1 Key words of the brief</h4>
+<div class="scroll"><table><thead><tr><th>Key phrase in the brief</th><th>What it means for my project</th></tr></thead><tbody>
+<tr><td>Ageing population</td><td>My user is 65+, living at home, possibly with reduced strength, reach, sight or memory</td></tr>
+<tr><td>Independent living, wellbeing or social participation</td><td>The solution must let the user do something themselves, without waiting for help</td></tr>
+<tr><td>Electro-mechanical element</td><td>A motor, servo or solenoid must move something, controlled by an electronic circuit</td></tr>
+<tr><td>Modern materials and processes</td><td>Use CAD/CAM (laser cutting, 3D printing), thermoplastics and a microcontroller</td></tr>
+<tr><td>User needs, ease of use, reliability, sustainability</td><td>Large controls, safe failure modes, low energy use, repairable design</td></tr>
+<tr><td>Working model, max 500 mm</td><td>A scale model; every key operating feature visible without dismantling</td></tr>
+</tbody></table></div>
+<h4>1.2 The broader context: Ireland's ageing population</h4>
+<p>Ireland's 65+ population grew by 22% between 2016 and 2022, to 776,315 people (<a href="https://www.cso.ie/en/csolatestnews/pressreleases/2023pressreleases/pressstatementcensusofpopulation2022-summaryresultsclare/" target="_blank" rel="noopener">CSO Census 2022</a>). The over-70s were the fastest-growing group, and the number of people aged 85+ rose by 25% (<a href="https://www.cso.ie/en/releasesandpublications/ep/p-cpsr/censusofpopulation2022-summaryresults/populationchanges/" target="_blank" rel="noopener">CSO</a>).</p>
+<p>This means more people are living at home for longer, often alone. The main challenges I found in my research were:</p>
+<ul>
+<li><b>Mobility and balance:</b> climbing steps or chairs increases the risk of falls</li>
+<li><b>Reduced strength and reach:</b> arthritis and stiff shoulders make high presses and heavy doors difficult</li>
+<li><b>Sensory decline:</b> poorer sight and hearing make small buttons and quiet alarms hard to use</li>
+<li><b>Memory:</b> forgetting medication, appointments or whether the cooker is off</li>
+<li><b>Isolation:</b> less contact with family and community, which affects wellbeing</li>
+</ul>
+<p class="tag">[Student adds: a mind map of these five areas with possible product ideas branching off each, drawn freehand.]</p>
+<h4>1.3 Primary research</h4>
+<p>I interviewed my grandmother (78, lives alone) and visited a local day-care centre to speak to two staff members. <span class="tag">[Student adds: interview questions, answers and photos, with permission.]</span></p>
+<p>Key findings:</p>
+<ol>
+<li>My grandmother keeps her cups and cereal on the lower shelves only, because she will not stand on a step since a fall last year.</li>
+<li>Staff said reaching into high presses is one of the most common reasons people ask family for help.</li>
+<li>Both said any device must be "obvious to use": one big button, no app, no small screens.</li>
+</ol>
+<h4>1.4 Chosen area and parameters</h4>
+<p>I chose <b>reach and access in the kitchen</b>, because it links directly to falls risk and to the user's independence, and it suits an electro-mechanical solution.</p>
+<p>My initial parameters (refined into a full specification in section 4):</p>
+<div class="scroll"><table><thead><tr><th>Parameter</th><th>Requirement</th></tr></thead><tbody>
+<tr><td>Function</td><td>Lower a shelf from a wall press to counter height and raise it again</td></tr>
+<tr><td>Control</td><td>One large, high-contrast button; works without reading instructions</td></tr>
+<tr><td>Safety</td><td>Stops automatically if an obstruction is detected; cannot trap fingers</td></tr>
+<tr><td>Load (model)</td><td>Carries at least 500 g without stalling</td></tr>
+<tr><td>Power</td><td>Low-voltage supply (12 V DC), low standby energy use</td></tr>
+<tr><td>Size</td><td>Model no larger than 500 mm in any direction</td></tr>
+<tr><td>Feedback</td><td>Light and sound confirm when the shelf is moving and when it has stopped</td></tr>
+<tr><td>Sustainability</td><td>Repairable with screws; parts separable for recycling</td></tr>
+</tbody></table></div>
+<p class="tag">Sources for this section must be listed in the folio bibliography (section 10).</p>
+
+<h3>Section 2: Overall management of the project (5 marks)</h3>
+<p class="tag">Marks for: analysis of available resources, time and budget constraints; proposed timeframe or Gantt chart.</p>
+<h4>2.1 Resources available</h4>
+<div class="scroll"><table><thead><tr><th>Resource</th><th>Available in school</th><th>How I will use it</th></tr></thead><tbody>
+<tr><td>Laser cutter</td><td>Yes, booked through teacher</td><td>Acrylic and plywood shelf, housing panels</td></tr>
+<tr><td>3D printer</td><td>Yes, one shared between class</td><td>Gear housings, button cap, cable guides</td></tr>
+<tr><td>CAD software</td><td>Yes (e.g. Fusion / Onshape, 2D design)</td><td>Modelling, laser-cutting files, drawings</td></tr>
+<tr><td>Strip heater, pillar drill, hand tools</td><td>Yes</td><td>Bending acrylic, drilling, finishing</td></tr>
+<tr><td>Soldering station</td><td>Yes</td><td>Control circuit on stripboard</td></tr>
+<tr><td>Microcontroller (Arduino Nano)</td><td>Must buy</td><td>Motor control, sensors, sleep mode</td></tr>
+<tr><td>Geared 12 V DC motor + driver</td><td>Must buy</td><td>Raising and lowering the shelf</td></tr>
+<tr><td>Teacher and technician support</td><td>Class periods only</td><td>Safety checks, machine setup</td></tr>
+</tbody></table></div>
+<h4>2.2 Time constraints</h4>
+<ul>
+<li>About 4 class periods (roughly 3 hours) per week, plus lunchtime sessions when the room is free.</li>
+<li>All work must be completed in school (SEC instruction 4), so no work at home on the artefact.</li>
+<li>Coursework must be available for assessment by <b>Friday 19 March 2027</b>.</li>
+<li>Breaks and pressure points: Christmas holidays, mock exams, February mid-term, and other subject coursework due in spring.</li>
+<li>The laser cutter and 3D printer are shared, so I must book them a week ahead and print overnight where possible.</li>
+</ul>
+<h4>2.3 Budget</h4>
+<p>My budget is <b>€60</b>, agreed with my parents and teacher.</p>
+<div class="scroll"><table><thead><tr><th>Item</th><th>Estimated cost</th></tr></thead><tbody>
+<tr><td>Arduino Nano (compatible)</td><td>€8</td></tr>
+<tr><td>12 V geared DC motor</td><td>€12</td></tr>
+<tr><td>Motor driver module</td><td>€4</td></tr>
+<tr><td>Limit switches × 2, IR obstruction sensor</td><td>€6</td></tr>
+<tr><td>Large arcade button, LED ring, buzzer</td><td>€7</td></tr>
+<tr><td>12 V plug-in power supply</td><td>€8</td></tr>
+<tr><td>Fixings, bearings, threaded rod</td><td>€6</td></tr>
+<tr><td>Contingency (about 15%)</td><td>€9</td></tr>
+<tr><td><b>Total</b></td><td><b>€60</b></td></tr>
+</tbody></table></div>
+<p class="tag">Acrylic, plywood, PLA filament and stripboard come from school stock. Full costing is in section 7.</p>
+<h4>2.4 Risks to the schedule</h4>
+<div class="scroll"><table><thead><tr><th>Risk</th><th>Effect</th><th>Plan if it happens</th></tr></thead><tbody>
+<tr><td>Parts arrive late</td><td>Electronics delayed</td><td>Order in December; test with school stock motor meanwhile</td></tr>
+<tr><td>3D print fails</td><td>Lost machine time</td><td>Print small test pieces first; keep laser-cut backup design</td></tr>
+<tr><td>Mocks take more time than planned</td><td>Manufacture falls behind</td><td>Two weeks of buffer built in before 19 March</td></tr>
+<tr><td>Motor too weak for the load</td><td>Shelf stalls</td><td>Test load in January before final assembly; gear ratio can change</td></tr>
+</tbody></table></div>
+<h4>2.5 Proposed timeframe</h4>
+<p>The Gantt chart below shows my plan from November to the 19 March deadline. I will compare it with what actually happened in section 9.</p>
+<img class="qimg" src="project/2027-exemplar-gantt.png" alt="Gantt chart: sections 1 to 3 in November, research and design ideas to mid December, Christmas break, drawings and production planning in January, manufacture from late January to early March, testing and folio presentation in March, a buffer week, then the coursework deadline on 19 March 2027." loading="lazy">
+<p>Overlaps are deliberate: production planning starts while drawings are finished, and testing begins in the last week of manufacture. <span class="tag">[Student adds: mock exam and mid-term dates from the school calendar.]</span></p>
+
+<h3>Section 3: Environmental impact of the project (10 marks)</h3>
+<p class="tag">Marks for: environmental awareness during design and realisation; analysis of materials available for manufacture; energy requirements; reuse and recycling.</p>
+<p>This is the biggest of the first three sections, so it needs real analysis, not a general paragraph about recycling. I looked at the whole life cycle: materials, manufacture, use and end of life.</p>
+<h4>3.1 Analysis of materials available</h4>
+<div class="scroll"><table><thead><tr><th>Material</th><th>Possible use</th><th>Environmental advantages</th><th>Environmental disadvantages</th><th>Decision</th></tr></thead><tbody>
+<tr><td>Birch plywood (FSC-certified)</td><td>Press housing, shelf base</td><td>Renewable; low embodied energy; laser cuts cleanly</td><td>Glue in plies makes it harder to recycle</td><td><b>Use</b> for housing</td></tr>
+<tr><td>Acrylic (PMMA)</td><td>Clear front panel so mechanism is visible</td><td>Durable; thermoplastic, so offcuts can be reprocessed</td><td>Made from oil; not collected in household recycling</td><td><b>Use</b> only where transparency is needed</td></tr>
+<tr><td>PLA filament</td><td>Gear housings, button cap</td><td>Made from plant starch; low print temperature</td><td>Only breaks down in industrial composting; weaker than PETG</td><td><b>Use</b> for low-load parts</td></tr>
+<tr><td>PETG filament</td><td>Load-bearing brackets</td><td>Stronger and tougher than PLA; recyclable (code 1)</td><td>Oil-based</td><td><b>Use</b> for brackets</td></tr>
+<tr><td>Aluminium angle</td><td>Guide rails</td><td>Infinitely recyclable; long life</td><td>High energy to produce from new ore</td><td><b>Use</b> recycled offcuts from school stock</td></tr>
+<tr><td>HIPS sheet</td><td>Vacuum-formed cover</td><td>Cheap and easy to form</td><td>Brittle with age; low recycling rate</td><td><b>Rejected</b></td></tr>
+</tbody></table></div>
+<h4>3.2 Environmental awareness during manufacture</h4>
+<ul>
+<li><b>Nesting laser-cut parts</b> in CAD so the acrylic sheet is used efficiently; offcuts kept for test pieces.</li>
+<li><b>3D printing at 15 to 20% infill</b> for non-load parts, cutting filament use and print time.</li>
+<li><b>Test prints and test cuts</b> on scrap first, so full parts are not wasted on errors.</li>
+<li><b>Lead-free solder</b> and a fume extractor at the soldering station.</li>
+<li><b>Water-based finishes</b> on the plywood instead of solvent-based varnish.</li>
+<li><b>Recycled aluminium offcuts</b> from the school store instead of buying new stock.</li>
+</ul>
+<h4>3.3 Energy requirements in use</h4>
+<p>My estimates, to be measured with a multimeter during testing (section 9):</p>
+<div class="scroll"><table><thead><tr><th>Mode</th><th>Power</th><th>Time per day</th><th>Energy per day</th></tr></thead><tbody>
+<tr><td>Motor moving (12 V × 0.5 A)</td><td>6 W</td><td>80 s (5 uses, up and down, 8 s each way)</td><td>0.13 Wh</td></tr>
+<tr><td>Standby, controller always on (about 20 mA)</td><td>0.24 W</td><td>24 h</td><td>5.8 Wh</td></tr>
+<tr><td>Standby with sleep mode (about 5 mA)</td><td>0.06 W</td><td>24 h</td><td>1.4 Wh</td></tr>
+</tbody></table></div>
+<p>The most important finding: <b>standby uses over 40 times more energy than the motor itself.</b> So I will programme the Arduino to sleep and wake only when the button is pressed. This cuts yearly use from about 2.1 kWh to about 0.5 kWh.</p>
+<h4>3.4 Product use, reuse and end of life</h4>
+<ul>
+<li><b>Design for disassembly:</b> parts joined with machine screws and threaded inserts, not glue, so the motor or electronics can be replaced instead of the whole unit.</li>
+<li><b>Long life:</b> a geared motor with limit switches avoids stalling and burning out.</li>
+<li><b>Material labelling:</b> plastic parts embossed with their recycling code (e.g. PETG, PMMA) during printing or engraving.</li>
+<li><b>Electronics:</b> at end of life, the circuit board, motor and power supply go to a WEEE take-back point, not general waste.</li>
+<li><b>Reuse:</b> the control module is standard, so it could be reused in another product.</li>
+</ul>
+<h4>3.5 Summary of environmental decisions</h4>
+<ol>
+<li>Renewable plywood for the bulk of the structure.</li>
+<li>Plastics used only where their properties are needed.</li>
+<li>Sleep mode, which cuts the product's biggest energy use by about three quarters.</li>
+<li>Screws, not glue, so the product can be repaired and separated for recycling.</li>
+</ol>
+
+<h3>What lifts these sections to H1</h3>
+<div class="scroll"><table><thead><tr><th>Section</th><th>Typical mid-grade folio</th><th>H1 folio</th></tr></thead><tbody>
+<tr><td>1: Analysis of brief</td><td>Rewrites the brief in own words</td><td>Breaks the brief into key phrases and says what each means for the design</td></tr>
+<tr><td>1: Broader context</td><td>General statements about older people</td><td>Cited statistics plus primary research (interview, visit, survey)</td></tr>
+<tr><td>1: Parameters</td><td>Vague aims ("easy to use")</td><td>Measurable parameters (load, size, voltage, controls) that section 4 refines</td></tr>
+<tr><td>2: Resources</td><td>A list of tools</td><td>Each resource linked to how and when it will be used, including what must be bought</td></tr>
+<tr><td>2: Constraints</td><td>"I have limited time"</td><td>Hours per week, real dates, shared-machine booking, mocks and holidays named</td></tr>
+<tr><td>2: Budget and timeframe</td><td>A total figure; a basic timeline</td><td>Itemised budget with contingency; Gantt chart with buffer; risk plan</td></tr>
+<tr><td>3: Materials</td><td>Says plastic is bad, wood is good</td><td>Compares several materials on both sides and records a decision for each</td></tr>
+<tr><td>3: Energy</td><td>Mentions batteries or "low power"</td><td>Calculates energy per mode and changes the design because of the result</td></tr>
+<tr><td>3: End of life</td><td>"It can be recycled"</td><td>Design for disassembly, material coding and WEEE disposal for the electronics</td></tr>
+</tbody></table></div>
+<p>Two habits matter across every section: <b>link forward</b> (section 1 parameters feed the section 4 specification; the section 2 plan is compared in section 9) and <b>cite every source</b>, including any AI tools used.</p>
 </div>
 </section>
 
@@ -431,8 +588,8 @@ $('reset').onclick=function(){if(confirm('Clear all ticks on this device?')){ST=
 counts();
 $("pgrid").innerHTML=DATA.project.map(function(p){return '<div class="box"><h3 style="margin-top:0">'+p[0]+'</h3><p class="tag">'+p[1]+'</p></div>'}).join("");
 $("briefs").innerHTML=DATA.briefs.map(function(b){return "<tr><td>"+b[0]+"</td><td><b>"+b[2]+"</b><br>"+b[3]+(b[4]?"<br><a href='"+b[4]+"' target='_blank' rel='noopener'>Brief on exams.ie</a>":"")+"</td><td>"+(b[1]?"<a href='papers/"+b[1]+"-technology-higher-marking-scheme.pdf' target='_blank' rel='noopener'>"+b[1]+" marking scheme PDF</a><br><span class='tag'>Brief and coursework marks are on the last pages</span>":"<a href='papers/2027-technology-coursework-brief.pdf' target='_blank' rel='noopener'>2027 coursework brief PDF</a><br><span class='tag'>Brief and criteria only. The marking scheme is published after the exam.</span>")+"</td></tr>"}).join("");
-function pv(n){$("pview1").hidden=n!==1;$("pview2").hidden=n!==2;$("pview3").hidden=n!==3;$("pv1").style.opacity=n===1?1:.55;$("pv2").style.opacity=n===2?1:.55;$("pv3").style.opacity=n===3?1:.55}
-$("pv1").onclick=function(){pv(1)};$("pv2").onclick=function(){pv(2)};$("pv3").onclick=function(){pv(3)};pv(1);
+function pv(n){[1,2,3,4].forEach(function(i){$("pview"+i).hidden=n!==i;$("pv"+i).style.opacity=n===i?1:.55})}
+$("pv1").onclick=function(){pv(1)};$("pv2").onclick=function(){pv(2)};$("pv3").onclick=function(){pv(3)};$("pv4").onclick=function(){pv(4)};pv(1);
 var topics=[];DATA.qs.forEach(function(q){if(topics.indexOf(q[0])<0)topics.push(q[0])});
 $("topicpick").innerHTML=topics.map(function(t){return '<label class="chk"><input type="checkbox" value="'+t+'" checked> '+t+'</label>'}).join("");
 var cur=[],ans=[];
