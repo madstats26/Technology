@@ -19,6 +19,7 @@ topic frequency, project and portfolio guidance, and practice quizzes.
 - No build step is needed.
 - `papers/` holds the past papers, marking schemes, the 2027 Leaving Cert coursework brief and the 2027 Junior Cycle Applied Technology coursework briefs.
 - `q/` holds the question images used by the practice modes.
+- `project/design-process.pptx` is the design process slide deck, linked from Junior Cycle project > Notes and guides.
 - `project/jc-portfolio-template.pptx` is the Junior Cycle portfolio template, linked from Junior Cycle project > Examples.
 - `project/` holds the 2027 exemplar folio (sections 1 to 3) as a Word file and its Gantt chart image, shown under Project > Exemplar folio.
 
